@@ -13,16 +13,14 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  useFindAndModify: false,
 });
 const db = mongoose.connection;
 
 db.on("error", () => console.log("error in DB connection".red));
 db.once("open", () => console.log("DB connected".green));
 
-
-
-mongoose.set('useFindAndModify', false);
+mongoose.set("useFindAndModify", false);
 const userApiObj = require("./apis/userapi");
 
 const adminApiObj = require("./apis/adminapi");
@@ -43,7 +41,7 @@ app.use((err, req, res, next) => {
   console.log(err);
 });
 
-const port = process.env.PORT||8080;
+const port = process.env.PORT || 8080;
 // j0oin syntax ===> join(path of the file , )
 
 app.listen(port, () => {

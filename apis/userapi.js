@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const bcryptjs = require("bcryptjs");
-const verifyTokenMethod=require('./middlewares/verifytoken')
+const verifyTokenMethod = require("./middlewares/verifytoken");
 const { errorComparator } = require("tslint/lib/verify/lintError");
 
 // const authSchema=require('../helpers/validation')
@@ -16,8 +16,6 @@ const { errorComparator } = require("tslint/lib/verify/lintError");
 userApiObj.post(
   "/createuser",
   errorHandler(async (req, res) => {
- 
-
     let userObj = req.body;
     let user = await User.findOne({ username: userObj.username });
 
@@ -39,77 +37,65 @@ userApiObj.post(
   })
 );
 
-
-
 // when order  is success
 
-userApiObj.post('/makePaymentNext',verifyTokenMethod,errorHandler(async(req,res)=>{
- 
-   
-    let paymentObj=req.body
-    
+userApiObj.post(
+  "/makePaymentNext",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let paymentObj = req.body;
+
     // console.log(req.body)
 
+    let user = await User.findOne({ username: paymentObj[0].orderBy });
+    let finalRequiredData = {
+      address: user.orders[0].address,
+      products: user.cart,
+    };
 
- let user =await User.findOne({username:paymentObj[0].orderBy})
- let finalRequiredData={address:user.orders[0].address , products:user.cart}
+    await User.findOneAndUpdate(
+      { username: paymentObj[0].orderBy },
+      { $push: { successOrders: finalRequiredData } }
+    );
 
-
- await User.findOneAndUpdate(
-  { username: paymentObj[0].orderBy },
-  { $push: {successOrders : finalRequiredData } }
-  
-
-     
- 
-
+    await User.findOneAndUpdate(
+      { username: paymentObj[0].orderBy },
+      { $set: { cart: [] } }
+    );
+  })
 );
 
-await User.findOneAndUpdate({username:paymentObj[0].orderBy},{$set:{cart:[]}}  )
+// payment
+userApiObj.post(
+  "/makePayment",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    userReqObj = req.body;
 
-}))
+    let otp = Math.floor(Math.random() * 1000000 + 1);
 
+    res.send({ message: otp });
+  })
+);
 
+userApiObj.post(
+  "/deletecard",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    indexOfCard = req.body;
+    // console.log(indexOfCard)
 
-
-// payment 
-userApiObj.post('/makePayment',verifyTokenMethod,errorHandler(async(req,res)=>{
-
-   userReqObj=req.body
-
-    let otp =Math.floor((Math.random() * 1000000) + 1);
-
-    res.send({message:otp})
-
-
-}
-
-   
- 
-
-
-) )
-
-
-userApiObj.post('/deletecard',verifyTokenMethod,errorHandler(async(req,res)=>{
-
-  indexOfCard=req.body
-  // console.log(indexOfCard)
-  
-   let filter ={username:indexOfCard.username}
-   let update = {cards:indexOfCard.cardObj} 
-await User.findOneAndUpdate(filter,update)
-
-
-
-}) )
-
+    let filter = { username: indexOfCard.username };
+    let update = { cards: indexOfCard.cardObj };
+    await User.findOneAndUpdate(filter, update);
+  })
+);
 
 // wishlist
 
-
 userApiObj.post(
-  "/userWishListAdd",verifyTokenMethod,
+  "/userWishListAdd",
+  verifyTokenMethod,
 
   errorHandler(async (req, res) => {
     let wishlistObj = req.body;
@@ -125,7 +111,7 @@ userApiObj.post(
         break;
       }
     }
-    
+
     if (bool == true) {
       res.send({ message: "Product is  already exist in wishlist" });
     } else {
@@ -139,26 +125,22 @@ userApiObj.post(
   })
 );
 
-   
 userApiObj.post(
+  "/getAllProductsToUsersFromWishlist",
+  verifyTokenMethod,
 
-  "/getAllProductsToUsersFromWishlist",verifyTokenMethod,
-  
-  errorHandler(async(req,res)=>{
+  errorHandler(async (req, res) => {
+    let user = await User.findOne({ username: req.body.username });
 
+    let productstoWishlist = user.wishlist;
 
-   let user=await User.findOne({username:req.body.username})
-
-   let productstoWishlist=user.wishlist
-
-
-   res.send({message:productstoWishlist})
-        
+    res.send({ message: productstoWishlist });
   })
 );
 
 userApiObj.post(
-  "/movetocartfromwishlist",verifyTokenMethod,
+  "/movetocartfromwishlist",
+  verifyTokenMethod,
 
   errorHandler(async (req, res) => {
     let wishlistObj = req.body;
@@ -175,16 +157,15 @@ userApiObj.post(
         break;
       }
     }
-    
+
     if (bool == true) {
       res.send({ message: "Product is  already exist in cart" });
 
       await User.findOneAndUpdate(
         { username: req.body.userAdded },
-  
+
         { $pull: { wishlist: { _id: req.body._id } } }
       );
-
     } else {
       let user = await User.findOneAndUpdate(
         { username: wishlistObj.userAdded },
@@ -193,7 +174,7 @@ userApiObj.post(
 
       await User.findOneAndUpdate(
         { username: req.body.userAdded },
-  
+
         { $pull: { wishlist: { _id: req.body._id } } }
       );
 
@@ -202,10 +183,9 @@ userApiObj.post(
   })
 );
 
-
-
 userApiObj.post(
-  "/deleteproductfromwishlist",verifyTokenMethod,
+  "/deleteproductfromwishlist",
+  verifyTokenMethod,
 
   errorHandler(async (req, res) => {
     let cartdel = await User.findOneAndUpdate(
@@ -218,35 +198,29 @@ userApiObj.post(
   })
 );
 
-
 // wishlist end
 
-
-
-
-// get  orders 
-
-
-userApiObj.post("/getOrders",verifyTokenMethod,errorHandler(async (req,res)=>{
-
-
-  let filter={username:req.body.username}
-  let user = await User.findOne(filter)
- 
-
-// console.log(user.successOrders)
-  res.send({message:user.successOrders})
-
-
-}))
-
+// get  orders
 
 userApiObj.post(
-  "/userCartAdd",verifyTokenMethod,
+  "/getOrders",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let filter = { username: req.body.username };
+    let user = await User.findOne(filter);
+
+    // console.log(user.successOrders)
+    res.send({ message: user.successOrders });
+  })
+);
+
+userApiObj.post(
+  "/userCartAdd",
+  verifyTokenMethod,
 
   errorHandler(async (req, res) => {
     let cartObj = req.body;
-    
+
     let bool = false;
     let userFound = await User.findOne({ username: cartObj.userAdded });
 
@@ -271,7 +245,8 @@ userApiObj.post(
 );
 
 userApiObj.post(
-  "/getCart",verifyTokenMethod,
+  "/getCart",
+  verifyTokenMethod,
   errorHandler(async (req, res) => {
     let user = req.body;
 
@@ -281,10 +256,10 @@ userApiObj.post(
   })
 );
 
-
 // remove item from cart
 userApiObj.post(
-  "/deletefromcart", verifyTokenMethod,
+  "/deletefromcart",
+  verifyTokenMethod,
 
   errorHandler(async (req, res) => {
     let prodObj = req.body;
@@ -298,122 +273,77 @@ userApiObj.post(
   })
 );
 
-
-
-
-
 // get cards
 
-
 userApiObj.post(
-
-
-  "/getUserCards",verifyTokenMethod,errorHandler(async(req,res)=>{
-
-  let cardObj=req.body;
-
-
-  let filter ={ username:cardObj[0].username}
- 
-
-  let user = await User.findOne(filter)
-
-
- res.send({message:user.cards})
-
-
-  })
-)
-
-// add card
-
-
-userApiObj.post(
-
-
-  "/cardAdd", verifyTokenMethod,errorHandler(async(req,res)=>{
-
-
-      let cardObj=req.body;
-
-
-
-
-      let filter ={ username:cardObj[0].username}
-   
- 
-
-      let userObj=await User.findOne({username:cardObj[0].username})
- 
-
-
-   if(!(userObj.cards.length<=2)){
-
-    res.send({message:"card limit exceeded"})
-   }
-   else{
-
-    
-    let user = await User.findOneAndUpdate(filter,
-        
-        
-      {$push:{cards:cardObj[0]}}
-      
-      )  
-     res.send({message:"Card Added"})
-
-
-   }
-
-
-
-  })
-)
-
-
-
-
-
-// order 
-
-userApiObj.post(
-  "/orders",verifyTokenMethod,
+  "/getUserCards",
+  verifyTokenMethod,
   errorHandler(async (req, res) => {
+    let cardObj = req.body;
 
-    let ordersObj=req.body;
- 
-   
-    let user = await User.findOne({ username:ordersObj[0].orderBy });
-     let address=user.address[ordersObj[0].selectedAddress]
-  
+    let filter = { username: cardObj[0].username };
 
+    let user = await User.findOne(filter);
 
-
-      await User.findOneAndUpdate({ username:ordersObj[0].orderBy},
-        
-        {$set:{orders:{address:address}}
-
-
-        })
-
-        res.send({message:"address noted"})
-    
-
-
-
+    res.send({ message: user.cards });
   })
 );
 
+// add card
+
+userApiObj.post(
+  "/cardAdd",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let cardObj = req.body;
+
+    let filter = { username: cardObj[0].username };
+
+    let userObj = await User.findOne({ username: cardObj[0].username });
+
+    if (!(userObj.cards.length <= 2)) {
+      res.send({ message: "card limit exceeded" });
+    } else {
+      let user = await User.findOneAndUpdate(
+        filter,
+
+        { $push: { cards: cardObj[0] } }
+      );
+      res.send({ message: "Card Added" });
+    }
+  })
+);
+
+// order
+
+userApiObj.post(
+  "/orders",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let ordersObj = req.body;
+
+    let user = await User.findOne({ username: ordersObj[0].orderBy });
+    let address = user.address[ordersObj[0].selectedAddress];
+
+    await User.findOneAndUpdate(
+      { username: ordersObj[0].orderBy },
+
+      { $set: { orders: { address: address } } }
+    );
+
+    res.send({ message: "address noted" });
+  })
+);
 
 // add address
 
 userApiObj.post(
-  "/addAddress", verifyTokenMethod,
+  "/addAddress",
+  verifyTokenMethod,
   errorHandler(async (req, res) => {
     // console.log("address".green, req.body);
 
     let usersinDb = await User.findOne({ username: req.body.username });
-
 
     // res.send({ message: usersinDb.address });
     if (usersinDb.address.length <= 5) {
@@ -430,7 +360,8 @@ userApiObj.post(
 
 // get address of user
 userApiObj.post(
-  "/getAddress",verifyTokenMethod,
+  "/getAddress",
+  verifyTokenMethod,
   errorHandler(async (req, res) => {
     let userObj = req.body;
     let user = await User.findOne({ username: userObj.username });
@@ -440,62 +371,62 @@ userApiObj.post(
 // delet user address
 
 userApiObj.post(
-  "/deleteUserAddress", verifyTokenMethod,
+  "/deleteUserAddress",
+  verifyTokenMethod,
   errorHandler(async (req, res) => {
     let userAddObj = req.body;
-    console.log(userAddObj)
+    console.log(userAddObj);
 
+    let filter = { username: userAddObj[0].username };
 
+    // console.log(filter)
+    let update = { address: userAddObj };
 
-  let filter={username:userAddObj[0].username}
+    await User.findOneAndUpdate(filter, update);
 
-
-  // console.log(filter)
-    let update = {address:userAddObj} 
-
- 
-      await User.findOneAndUpdate(filter,update)
-  
-    res.send({  message:"Address removed"})
+    res.send({ message: "Address removed" });
   })
 );
 
+userApiObj.post(
+  "/changepassword",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let userObj = req.body;
+    let user = await User.findOne({ username: userObj.username });
+    let status = await bcryptjs.compare(userObj.password, user.password);
 
+    if (status) {
+      let hashedPassword = await bcryptjs.hash(userObj.new_password, 7);
+      console.log("hash up", hashedPassword);
+      let pass = await User.findOneAndUpdate(
+        { username: userObj.username },
+        { $set: { password: hashedPassword } }
+      );
+      console.log("hash down", user.password);
 
-userApiObj.post("/changepassword", verifyTokenMethod,errorHandler(async (req,res)=>{
-  let userObj=req.body;
-  let user = await User.findOne({username:userObj.username})
-  let status = await bcryptjs.compare(userObj.password, user.password);
+      res.send({ message: "password changed successfully" });
+    } else {
+      res.send({ message: "Old password Not matched!!!" });
+    }
+  })
+);
 
-      if (status) {
-        let hashedPassword = await bcryptjs.hash(userObj.new_password, 7);
-        console.log("hash up",hashedPassword)
-        let pass = await User.findOneAndUpdate({username:userObj.username},{$set:{password:hashedPassword}})
-        console.log("hash down",user.password)
+userApiObj.post(
+  "/getuserprofile",
+  errorHandler(async (req, res) => {
+    let filter = { username: req.body.username };
+    let user = await User.findOne(filter);
 
-        res.send({ message: "password changed successfully"});
-      } else {
-        res.send({ message: "Old password Not matched!!!" });
-      }
-}))
+    let sentObj = { username: user.username, email: user.email };
 
-
-
-userApiObj.post("/getuserprofile", errorHandler(async (req,res)=>{
-
-  let filter={username:req.body.username}
-  let user = await User.findOne(filter)
-
-  let sentObj = {username:user.username,email:user.email}
-
-  res.send({message:sentObj})
-}))
+    res.send({ message: sentObj });
+  })
+);
 
 userApiObj.post(
   "/createuser",
   errorHandler(async (req, res) => {
- 
-
     let userObj = req.body;
     let user = await User.findOne({ username: userObj.username });
 
@@ -517,9 +448,6 @@ userApiObj.post(
   })
 );
 
-
-
-
 // login user
 
 userApiObj.post(
@@ -536,7 +464,7 @@ userApiObj.post(
 
       if (status) {
         let token = await jwt.sign({ username: user.username }, "abcd", {
-          expiresIn: 10000
+          expiresIn: 10000,
         });
 
         res.send({ message: "success", token: token, userObj: user.username });

@@ -1,8 +1,8 @@
 const exp = require("express");
 const adminApiObj = exp.Router();
 
-const Cryptr = require('cryptr');
-const cryptr = new Cryptr('myTotalySecretKey');
+const Cryptr = require("cryptr");
+const cryptr = new Cryptr("myTotalySecretKey");
 
 adminApiObj.use(exp.json());
 const errorHandler = require("express-async-handler");
@@ -42,14 +42,7 @@ adminApiObj.post(
   })
 );
 
-// get admin sales 
-
-
-
-
-
-
-
+// get admin sales
 
 adminApiObj.post(
   "/login",
@@ -58,13 +51,11 @@ adminApiObj.post(
     // console.log(adminObj);
 
     let admin = await Admin.findOne({ username: adminObj.username });
- 
 
     if (admin == null) {
       res.send({ message: "Invalid username" });
     } else {
       let status = await bcryptjs.compare(adminObj.password, admin.password);
-     
 
       if (status) {
         let token = await jwt.sign({ username: admin.username }, "abcd", {
@@ -74,7 +65,7 @@ adminApiObj.post(
         res.send({
           message: "success",
           token: token,
-          adminObj: admin.username
+          adminObj: admin.username,
         });
       } else {
         res.send({ message: "Invalid Password" });

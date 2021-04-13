@@ -3,22 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
 })
 export class AccountComponent implements OnInit {
+  username: string;
 
-
-  username:string 
-
-  constructor() { 
-    
-  this.username=localStorage.getItem('username')
-
-     
+  constructor() {
+    this.username = localStorage.getItem('username');
   }
 
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

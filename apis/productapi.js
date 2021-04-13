@@ -9,7 +9,7 @@ const Product = require("../models/Product");
 const User = require("../models/User");
 
 const bcryptjs = require("bcryptjs");
-const verifyTokenMethod=require('./middlewares/verifytoken')
+const verifyTokenMethod = require("./middlewares/verifytoken");
 
 // 1.cloudinary  configuration imports
 const cloudinary = require("cloudinary").v2;
@@ -75,22 +75,17 @@ productApiObj.post(
   })
 );
 
+productApiObj.post(
+  "/getSingleProduct",
+  verifyTokenMethod,
+  errorHandler(async (req, res) => {
+    let prod_id = req.body.id;
 
+    let product = await Product.findOne({ _id: prod_id });
 
-productApiObj.post("/getSingleProduct",verifyTokenMethod,errorHandler(async(req,res)=>{
-
-    let prod_id=req.body.id 
-    
-    
-
-   let product =  await Product.findOne({_id:prod_id})
-    
-
-   res.send({message:product})
-   
-
-
-}))
+    res.send({ message: product });
+  })
+);
 
 productApiObj.post(
   "/getproducts",
@@ -149,12 +144,10 @@ productApiObj.post(
   errorHandler(async (req, res) => {
     let bookInfo = req.body;
 
-
     let filter = { _id: bookInfo.id };
 
     let product = await Product.findOne(filter);
     res.send({ message: product });
-
   })
 );
 
