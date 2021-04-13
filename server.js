@@ -10,9 +10,7 @@ require("dotenv").config();
 app.use(exp.static(path.join(__dirname, "dist/bookStore")));
 
 
-app.all('*', (req, res) => {
-  res.status(200).sendFile(__dirname + '/dist/index.html');
-});
+
 
 const mongoose = require("mongoose");
 
