@@ -23,7 +23,11 @@ export class BagComponent implements OnInit {
   limitofPurhcase: boolean = false;
 
   deliveryCharge: number = 50;
-  constructor(private ds: DataService, private router: Router,private toastr :ToastrService) {}
+  constructor(
+    private ds: DataService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   placeOrder() {
     this.router.navigateByUrl(`useraccount/${this.user.username}/cart/address`);
@@ -51,17 +55,11 @@ export class BagComponent implements OnInit {
     );
   }
 
-
-
-
-
-//  move to wish list 
-wish(book) {
-this.removeItemfromCart(book)
-
+  //  move to wish list
+  wish(book) {
+    this.removeItemfromCart(book);
 
     let status = localStorage.getItem('username');
-   
 
     if (status) {
       book.userAdded = status;
@@ -86,15 +84,14 @@ this.removeItemfromCart(book)
     }
   }
 
-
-
   ngOnInit(): void {
     this.user.username = localStorage.getItem('username');
 
     this.ds.getCart(this.user).subscribe(
       (res) => {
-        if (res['message'] == 'Session is Expired.. Please relogin to continue' )
-         {
+        if (
+          res['message'] == 'Session is Expired.. Please relogin to continue'
+        ) {
           localStorage.removeItem('token');
           localStorage.removeItem('username');
           localStorage.removeItem('Usertype');
@@ -103,18 +100,12 @@ this.removeItemfromCart(book)
         }
         if (res['message'] == 'Unauthorized access') {
           alert(res['message']);
-        }
-         else {
+        } else {
           this.cart = res['message'];
 
-          for (let i = 0; i < this.cart.length ; i++) {
-
-            if(this.cart[i].active)
-            
-            this.inStock[i] = this.cart[i];
-            
+          for (let i = 0; i < this.cart.length; i++) {
+            if (this.cart[i].active) this.inStock[i] = this.cart[i];
           }
-       
 
           if (this.cart.length == 0) {
             this.cartIsEmpty = false;

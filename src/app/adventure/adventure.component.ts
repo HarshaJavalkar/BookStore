@@ -13,9 +13,6 @@ export class AdventureComponent implements OnInit {
 
   constructor(private ds: DataService, private router: Router) {}
 
-
-
-  
   ngOnInit(): void {
     this.ds.getAllProductstoUsers().subscribe(
       (res) => {
@@ -26,7 +23,6 @@ export class AdventureComponent implements OnInit {
 
           return book;
         });
-
       },
       (err) => {}
     );

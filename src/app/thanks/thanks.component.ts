@@ -6,29 +6,17 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-thanks',
   templateUrl: './thanks.component.html',
-  styleUrls: ['./thanks.component.css']
+  styleUrls: ['./thanks.component.css'],
 })
 export class ThanksComponent implements OnInit {
-  receivedAddress:string
-  constructor(private router:Router,private ds:DataService) { }
+  receivedAddress: string;
+  constructor(private router: Router, private ds: DataService) {}
 
-  ngOnInit(): void {
-    
-    
+  ngOnInit(): void {}
 
-  }
+  username = localStorage.getItem('username');
 
-   username=localStorage.getItem('username')
-
-
-
-  backtoHome(){
-
-    this.router.navigateByUrl(`/useraccount/${this.username}`)
-   
-     
-   
-
-
+  backtoHome() {
+    this.router.navigateByUrl(`/useraccount/${this.username}`);
   }
 }

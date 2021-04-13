@@ -4,24 +4,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-corousel',
   templateUrl: './corousel.component.html',
-  styleUrls: ['./corousel.component.css']
+  styleUrls: ['./corousel.component.css'],
 })
 export class CorouselComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router) { }
-
-
-  
-  clickedExplore(cardClicked){
-      
-  
-    this.router.navigateByUrl(`/store/${cardClicked}`)
-
-
-}
-
-
-  ngOnInit(): void {
+  clickedExplore(cardClicked) {
+    this.router.navigateByUrl(`/store/${cardClicked}`);
   }
 
+  ngOnInit(): void {}
 }

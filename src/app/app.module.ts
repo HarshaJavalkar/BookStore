@@ -14,7 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CorouselComponent } from './corousel/corousel.component';
 import { StoreComponent } from './store/store.component';
 import { PopularComponent } from './popular/popular.component';
-import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserdashComponent } from './userdash/userdash.component';
 import { AccountComponent } from './account/account.component';
 import { AdmindashComponent } from './admindash/admindash.component';
@@ -36,16 +36,13 @@ import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { OrdersComponent } from './orders/orders.component'
+import { OrdersComponent } from './orders/orders.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
-import { ToastrModule } from 'ngx-toastr' ;
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { PremiumComponent } from './premium/premium.component'
-
-
-
+import { PremiumComponent } from './premium/premium.component';
 
 @NgModule({
   declarations: [
@@ -83,9 +80,6 @@ import { PremiumComponent } from './premium/premium.component'
     ProductinfoComponent,
     UserprofileComponent,
     PremiumComponent,
-    
-  
-
   ],
   imports: [
     BrowserModule,
@@ -95,21 +89,23 @@ import { PremiumComponent } from './premium/premium.component'
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut:1000,
-      progressBar:true,
-      progressAnimation:'increasing',
-      preventDuplicates:true,
-      positionClass:'toast-top-center'
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
+      positionClass: 'toast-top-center',
     }),
-    
-    HttpClientModule
+
+    HttpClientModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass:AuthorizationService,
-    multi:true
-  }],
-  
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizationService,
+      multi: true,
+    },
+  ],
+
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,9 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-
-
-   address:any  
+  address: any;
   private subject = new Subject<any>();
 
   constructor(private hc: HttpClient) {}
@@ -97,80 +95,64 @@ export class DataService {
     return this.hc.post('/user/getUserCards', cardObj);
   }
 
-  makePaymentFinal(user):Observable<any>{
-
-
-    return this.hc.post('/user/makePayment',user);
+  makePaymentFinal(user): Observable<any> {
+    return this.hc.post('/user/makePayment', user);
   }
 
-  makePaymentFinalStep(user):Observable<any>{
-
-    console.log(user)
-    return this.hc.post('/user/makePaymentNext',user)
+  makePaymentFinalStep(user): Observable<any> {
+    console.log(user);
+    return this.hc.post('/user/makePaymentNext', user);
   }
 
-
-  sendDatatoAddress(receivedAddress){
-
-    this.address=receivedAddress
+  sendDatatoAddress(receivedAddress) {
+    this.address = receivedAddress;
   }
 
-  receiveFinalAddress(){
+  receiveFinalAddress() {
     return this.address;
   }
 
-  deleteCard(cardIndex):Observable<any>{
-    return this.hc.post('/user/deletecard',cardIndex)
-
-
+  deleteCard(cardIndex): Observable<any> {
+    return this.hc.post('/user/deletecard', cardIndex);
   }
 
-
-  getOrders(username):Observable<any>{
-
-    return this.hc.post("/user/getOrders",username)
+  getOrders(username): Observable<any> {
+    return this.hc.post('/user/getOrders', username);
   }
 
-  checkDelete(cart):Observable<any>{
-    return this.hc.post("/product/checkDeleted",cart)
+  checkDelete(cart): Observable<any> {
+    return this.hc.post('/product/checkDeleted', cart);
   }
 
-
-  getProductsById(id):Observable<any>{
-
-  return this.hc.post('/product/getSingleProduct',id)
-  }
-    
-
-  // wishlist 
-
-
-  moveToWishlistFromStore(book):Observable<any>{
-    return this.hc.post("/user/userWishListAdd",book)
-  }
- getproductsFromWishlist(userObj): Observable<any> {
-    return this.hc.post('/user/getAllProductsToUsersFromWishlist',userObj);
-  }
-  deleteProductFromWishlist(wishprod):Observable<any>{
-    return this.hc.post('/user/deleteproductfromwishlist',wishprod);
+  getProductsById(id): Observable<any> {
+    return this.hc.post('/product/getSingleProduct', id);
   }
 
-  moveToCartFromWishlist(wishprod):Observable<any>{
-    return this.hc.post('/user/movetocartfromwishlist',wishprod);
+  // wishlist
+
+  moveToWishlistFromStore(book): Observable<any> {
+    return this.hc.post('/user/userWishListAdd', book);
+  }
+  getproductsFromWishlist(userObj): Observable<any> {
+    return this.hc.post('/user/getAllProductsToUsersFromWishlist', userObj);
+  }
+  deleteProductFromWishlist(wishprod): Observable<any> {
+    return this.hc.post('/user/deleteproductfromwishlist', wishprod);
   }
 
-
-  getProductwithid(prodobj):Observable<any>{
-    return this.hc.post("/product/getproductwithid",prodobj)
+  moveToCartFromWishlist(wishprod): Observable<any> {
+    return this.hc.post('/user/movetocartfromwishlist', wishprod);
   }
 
-
-  getprofile(userObj):Observable<any>{
-    
-    return this.hc.post("/user/getuserprofile",userObj)
+  getProductwithid(prodobj): Observable<any> {
+    return this.hc.post('/product/getproductwithid', prodobj);
   }
 
-  changepassword(userpass):Observable<any>{
-    return this.hc.post("/user/changepassword",userpass)
+  getprofile(userObj): Observable<any> {
+    return this.hc.post('/user/getuserprofile', userObj);
+  }
+
+  changepassword(userpass): Observable<any> {
+    return this.hc.post('/user/changepassword', userpass);
   }
 }

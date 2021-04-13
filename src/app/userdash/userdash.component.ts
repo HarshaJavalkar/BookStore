@@ -6,47 +6,22 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-userdash',
   templateUrl: './userdash.component.html',
-  styleUrls: ['./userdash.component.css']
+  styleUrls: ['./userdash.component.css'],
 })
+export class UserdashComponent implements OnInit, OnDestroy {
+  username: any;
+  subscription: Subscription;
 
-
-export class UserdashComponent implements OnInit,OnDestroy {
-  
-
-  username:any;
-  subscription:Subscription;
-
-
-  constructor(private ar:ActivatedRoute ) { }
-
-
-
+  constructor(private ar: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.subscription = this.ar.paramMap.subscribe((data) => {
+      this.username = data['params'].username;
 
-
-    this.subscription=this.ar.paramMap.subscribe(
-      
-      
-      data=>
-      {
-        this.username=data['params'].username
-
-        console.log(this.username)
-
-      })
-
-
-
-
-
-
-      
+      console.log(this.username);
+    });
   }
-  ngOnDestroy(){
-
-
-    this.subscription.unsubscribe()
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
-
 }

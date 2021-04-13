@@ -4,22 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-admindash',
   templateUrl: './admindash.component.html',
-  styleUrls: ['./admindash.component.css']
+  styleUrls: ['./admindash.component.css'],
 })
 export class AdmindashComponent implements OnInit {
+  constructor(private ar: ActivatedRoute) {}
 
-  constructor( private ar: ActivatedRoute) { }
-
-
-  adminName:string
+  adminName: string;
   ngOnInit(): void {
-
-    this.ar.paramMap.subscribe(
-
-      data=>{
-        this.adminName=data['param']
-      }
-    )
+    this.ar.paramMap.subscribe((data) => {
+      this.adminName = data['param'];
+    });
   }
-
 }

@@ -28,36 +28,38 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path : 'productinfo/:id',component:ProductinfoComponent},
-  { path :'premium' ,component: PremiumComponent},
+  { path: 'productinfo/:id', component: ProductinfoComponent },
+  { path: 'premium', component: PremiumComponent },
   { path: 'home', component: HomeComponent },
   { path: 'thanks', component: ThanksComponent },
-  { path :"userprofile/:username",component:UserprofileComponent},
+  { path: 'userprofile/:username', component: UserprofileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'useraccount/:username', component: UseraccountComponent,
+  {
+    path: 'useraccount/:username',
+    component: UseraccountComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path :'wishlist' ,component:WishlistComponent  },
-      { path: 'orders',component:OrdersComponent},
-      { path: 'cart',
+      { path: 'wishlist', component: WishlistComponent },
+      { path: 'orders', component: OrdersComponent },
+      {
+        path: 'cart',
         component: CartComponent,
         children: [
-          { path: '', pathMatch: 'full', redirectTo: 'bag' }, 
+          { path: '', pathMatch: 'full', redirectTo: 'bag' },
           { path: 'address', component: AddressComponent },
-          { path: 'payment',component: PaymentComponent },
+          { path: 'payment', component: PaymentComponent },
           { path: 'bag', component: BagComponent },
-          { path: '**', redirectTo: 'pagenotfound' }
+          { path: '**', redirectTo: 'pagenotfound' },
         ],
       },
       { path: 'home', component: HomeComponent },
       { path: 'store', component: StoreComponent },
-      { path: '**', redirectTo: 'pagenotfound' }
+      { path: '**', redirectTo: 'pagenotfound' },
     ],
   },
   { path: 'account', component: AccountComponent },
-  { path: 'store/:id', component: StoreComponent,children:[  
-  ] },
+  { path: 'store/:id', component: StoreComponent, children: [] },
 
   {
     path: 'adminaccount/:username',
@@ -69,7 +71,7 @@ const routes: Routes = [
       { path: 'addnew', component: AddnewComponent },
       { path: 'update', component: UpdateComponent },
       { path: 'account', component: AccountComponent },
-      { path: '**', redirectTo: 'pagenotfound' }
+      { path: '**', redirectTo: 'pagenotfound' },
     ],
   },
   { path: 'adminprofile', component: AdminprofileComponent },
@@ -84,7 +86,7 @@ const routes: Routes = [
       { path: 'addnew', component: AddnewComponent },
 
       { path: 'store', component: StoreComponent },
-      { path: '**', redirectTo: 'pagenotfound' }
+      { path: '**', redirectTo: 'pagenotfound' },
     ],
   },
   { path: 'store', component: StoreComponent },

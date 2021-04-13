@@ -4,46 +4,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-useraccount',
   templateUrl: './useraccount.component.html',
-  styleUrls: ['./useraccount.component.css']
+  styleUrls: ['./useraccount.component.css'],
 })
 export class UseraccountComponent implements OnInit {
-
   status: boolean = false;
-  adminName:string
+  adminName: string;
 
-  constructor(private ar: ActivatedRoute,private router:Router) { }
+  constructor(private ar: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    
-    this.ar.paramMap.subscribe(
-
-      data=>{
-        this.adminName=data['param']
-      } )
+    this.ar.paramMap.subscribe((data) => {
+      this.adminName = data['param'];
+    });
   }
 
-
-  toggleMenu(){
-
-    this.status = !this.status; 
-    
-
- 
-
+  toggleMenu() {
+    this.status = !this.status;
   }
 
-  logout(){
-
-    localStorage.removeItem('token')
-localStorage.removeItem('username')
-this.router.navigateByUrl("/login")
-
-
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.router.navigateByUrl('/login');
   }
-
-
-
-
-
-
 }
