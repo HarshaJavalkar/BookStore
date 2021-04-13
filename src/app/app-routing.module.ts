@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PaymentComponent } from './payment/payment.component';
+import { PremiumComponent } from './premium/premium.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
@@ -28,48 +29,34 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path : 'productinfo/:id',component:ProductinfoComponent},
-
-   { path: 'home', component: HomeComponent },
+  { path :'premium' ,component: PremiumComponent},
+  { path: 'home', component: HomeComponent },
   { path: 'thanks', component: ThanksComponent },
   { path :"userprofile/:username",component:UserprofileComponent},
-
-
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  // { path: 'userdash/:username', component: UserdashComponent },
- 
   { path: 'useraccount/:username', component: UseraccountComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      {path :'wishlist' ,component:WishlistComponent  },
-      {path: 'orders',component:OrdersComponent},
-      
-      {
-        path: 'cart',
+      { path :'wishlist' ,component:WishlistComponent  },
+      { path: 'orders',component:OrdersComponent},
+      { path: 'cart',
         component: CartComponent,
         children: [
-          { path: '', pathMatch: 'full', redirectTo: 'bag' },
-          
+          { path: '', pathMatch: 'full', redirectTo: 'bag' }, 
           { path: 'address', component: AddressComponent },
           { path: 'payment',component: PaymentComponent },
-
-         
-
-
           { path: 'bag', component: BagComponent },
+          { path: '**', redirectTo: 'pagenotfound' }
         ],
       },
-
       { path: 'home', component: HomeComponent },
       { path: 'store', component: StoreComponent },
+      { path: '**', redirectTo: 'pagenotfound' }
     ],
   },
   { path: 'account', component: AccountComponent },
-
-  { path: 'store/:id', component: StoreComponent,children:[
-
-
-    
+  { path: 'store/:id', component: StoreComponent,children:[  
   ] },
 
   {
@@ -82,6 +69,7 @@ const routes: Routes = [
       { path: 'addnew', component: AddnewComponent },
       { path: 'update', component: UpdateComponent },
       { path: 'account', component: AccountComponent },
+      { path: '**', redirectTo: 'pagenotfound' }
     ],
   },
   { path: 'adminprofile', component: AdminprofileComponent },
@@ -96,10 +84,10 @@ const routes: Routes = [
       { path: 'addnew', component: AddnewComponent },
 
       { path: 'store', component: StoreComponent },
+      { path: '**', redirectTo: 'pagenotfound' }
     ],
   },
   { path: 'store', component: StoreComponent },
-
   { path: '**', redirectTo: 'pagenotfound' },
 ];
 

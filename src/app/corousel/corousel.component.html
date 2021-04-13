@@ -11,13 +11,38 @@
                    <!-- media queries -->
                    <source media="(max-width: 1024px)" srcset="../../assets/blurbook.JPEG">
                    <img  media="(min-width:1025px)" src="../../assets/book.JPEG" height="600px" width="100%"/>
-                </picture>
+               
+               
+               <!-- content -->
+               <div class="card-img-overlay m-md-5 mt-5 p-md-5">
+                <h1 class="fw-bold" style="color: darkblue;" >BEST OF BIOGRAPHIES</h1>
+                <p class="card-text mt-5  h3">“Always live your life with your <br> biography in mind.”
+                 <br>
+                  ― Marisha Pessl</p>
+                <button class="btn btn-info text-light" routerLink="#" (click)="clickedExplore(4)" >READ MORE</button>
+              </div>               
+               
+               
+               
+                  </picture>
   </div>
   <div class="carousel-item">
       <picture>
                    <!-- media queries -->
                    <source media="(max-width: 1024px)" srcset="../../assets/blurwoman.JPEG">
                    <img  media="(min-width:1025px)" src="../../assets/woman.JPEG" height="600px" width="100%" />
+
+
+
+                    <!-- content -->
+                    <div class="card-img-overlay m-md-5 mt-5  text-end">
+                      <h1 class="fw-bold text-uppercase" style="color: darkblue;" >Make love, Not war</h1>
+                      <p class="card-text text-light h3">Reading reduces stress by 68 percent .</p>
+                         <div class="">
+                      <button class="btn btn-info text-light"  (click)="clickedExplore(9)" routerLink="#">READ MORE</button>
+                    </div>
+                    </div>
+               
      </picture>
   </div>
   <div class="carousel-item">
@@ -25,17 +50,30 @@
                     
 
 
+
                        
                    <source media="(max-width: 1024px)" srcset="../../assets/blurman.JPEG">
                    <img  media="(min-width:1025px)" src="../../assets/man.JPEG" height="600px" width="100%" />
+
+
+
+
+                   <div class="card-img-overlay m-md-5 mt-5  text-end">
+                    <h1 class="fw-bold text-uppercase" style="color: darkblue;" >Owning your own <br> books matters</h1>
+                    <p class="card-text text-dark h3">You’re more likely to learn <br> something new everyday if your read daily.</p>
+                       <div class="">
+                    <button class="btn btn-info text-light"  (click)="clickedExplore(2)" routerLink="#">READ MORE</button>
+                  </div>
+                  </div>
+             
       </picture>
   </div>
 </div>
-<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+<button class="  carousel-control-prev bs-0"  style="width: 5%; color: darkblue;" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
   <span class="visually-hidden">Previous</span>
 </button>
-<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+<button class="carousel-control-next" style="width: 5%; color:darkblue" type="button" style="width: 5%;" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
   <span class="carousel-control-next-icon" aria-hidden="true"></span>
   <span class="visually-hidden">Next</span>
 </button>

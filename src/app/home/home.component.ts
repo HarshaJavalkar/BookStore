@@ -31,6 +31,12 @@ clickedToast(){
 
 
 }
+navigatePremium(){
+
+
+this.router.navigateByUrl('/premium')
+
+}
 
 
 

@@ -3,7 +3,9 @@
 
 
 <app-corousel></app-corousel>
-<div class="container mt-5 mb-5 ">
+<div class="container  mt-0 mb-5 ">
+
+
 <div class="search-box">
    <input class="search-txt" type="text" name="" [(ngModel)]="searchText" placeholder="Type to Search">
 <a class="search-btn" href="#">
@@ -13,8 +15,10 @@
 
 </div>
 
-<div class="card containerCss outer-container">
+<div class="card containerCss outer-container" style="margin-top: 150px;">
+  
    <div class="row">
+    <h6 class="text-secondary" *ngIf="searchText">Search results for: {{searchText}}</h6>
      <div class="wrap">
        <div class="colu m-4" *ngFor="let product of booksAvailable | filter:searchText ">
          <div class="card" style="width: 12rem">
@@ -49,7 +53,7 @@
         <h4>Get a Premium</h4>
         <!-- <h5 class="title-card">PRESS RELEASE | 10.28.2020</h5> -->
         <h4 class="text-bold title-card pt-3">Explore the Book you need</h4>
-        <input type="submit" class="mt-5 mb-3 btn" value="LEARN MORE" />
+        <input type="submit" (click)="navigatePremium()" class="mt-5 mb-3 btn" value="LEARN MORE" />
       </div>
     </div>
   </div>

@@ -22,7 +22,7 @@ export class AddressComponent implements OnInit {
   
   selectedAddressFromList:number=-1;
   orders=[{selectedAddress:"",orderBy:"" }]
-  
+  validity: boolean = false;
 
 
 
@@ -32,6 +32,10 @@ export class AddressComponent implements OnInit {
   constructor(private ds: DataService, private router: Router,private toastr:ToastrService) {}
 
   addAddress(ref) {
+
+
+    if (ref.status == 'VALID') {
+      this.validity = true;
     let addObj = ref.value;
 
     addObj.username = localStorage.getItem('username');
@@ -44,6 +48,13 @@ export class AddressComponent implements OnInit {
       this.toastr.success('Address added  ');
       }
     });
+
+  }
+  else{
+
+    this.validity = true;
+      this.toastr.warning("All fields are mandatory")
+  }
   }
 
   deleteAddress(i) {

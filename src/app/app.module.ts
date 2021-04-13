@@ -41,7 +41,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { ToastrModule } from 'ngx-toastr' ;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserprofileComponent } from './userprofile/userprofile.component'
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { PremiumComponent } from './premium/premium.component'
 
 
 
@@ -81,6 +82,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component'
     OrdersComponent,
     ProductinfoComponent,
     UserprofileComponent,
+    PremiumComponent,
     
   
 
