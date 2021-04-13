@@ -1,0 +1,196 @@
+
+
+
+
+  <div class="d-flex justify-content-center p-fixed mt-5">
+
+ 
+
+    <div class="me-5"><i routerLink="bag" class="fas  fa-shopping-bag h3 bag" style="cursor: pointer; color:rgb(0, 62, 179)"></i></div>
+    <i class="fas fa-horizontal-rule h1"></i>
+    <i class="fas fa-building h1 text-success ms-5 me-5"></i>
+    <i class="fas fa-horizontal-rule h1" ></i>
+    
+    <i class="fas fa-money-check-alt text-dark h3 ms-5"></i>
+     </div>
+     
+<div class="row  addressPage">
+  <div class="col-75">
+    <!-- addreee list display  -->
+
+    <div class="">
+      <div class="card">
+        <div class="card-body">
+          
+          
+          <h4>Select shipping  Address</h4>
+          <div
+            class="card"
+            style="border-style: dashed; border-color: solid green"
+            *ngFor="let address of addressList; index as i"
+          >
+
+  
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                (click)="selectedAddress(i)"
+
+                
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                <div class="card-body">
+                  <h6>{{ address.firstname }}</h6>
+                  
+
+                  <small class="address-font-adjust">
+                    {{ address.email }}
+                  </small>
+<br>
+                  <small class="address-font-adjust">
+                    {{ address.address }}
+                  </small>
+<br>
+                  <small class="address-font-adjust">
+                    {{ address.city }}
+                  </small>
+                 <br>
+
+                  <small class="address-font-adjust">
+                    {{ address.state }}
+                  </small >
+                  <br>
+                  <small class="address-font-adjust">
+                    {{ address.zip }}
+                  </small>
+
+                  <i
+                    class="categories-more-right fa fa-trash"
+                    (click)="deleteAddress(i)"
+                    style="border: none"
+                  ></i>
+                </div>
+              </label>
+
+            </div>
+
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- address display end -->
+
+    <div class="container" *ngIf="addressLimit">
+      <form #ref="ngForm" (ngSubmit)="addAddress(ref)">
+        <div class="row">
+          <div class="col-50">
+            <h3>Add Shipping Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="John M. Doe"
+              ngModel/>
+
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="john@example.com"
+              ngModel
+            />
+            <label for="adr"
+              ><i class="fa fa-address-card-o"></i> Address</label
+            >
+            <input
+              type="text"
+              id="adr"
+              name="address"
+              placeholder="542 W. 15th Street"
+              ngModel
+            />
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="New York"
+              ngModel
+            />
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  placeholder="NY"
+                  ngModel
+                />
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input
+                  type="text"
+                  id="zip"
+                  name="zip"
+                  placeholder="10001"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr" ngModel />
+          Shipping address same as billing
+        </label>
+        <button type="submit" value="Continue to checkout" class="btn">
+          Add Address
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-25">
+    <div class="container">
+      <small>PRICE DETAILS</small>
+
+      <table class="table table-0">
+        <tr>
+          <td><p>Total MRP:</p></td>
+          <td>
+            &#8377; <span> {{ sum }} </span>
+            <span> </span>
+          </td>
+        </tr>
+        <tr>
+          <td><p>Deleivery Charges</p></td>
+
+          <td>
+            &#8377; <span *ngIf="!bool"> {{ deliveryCharge }}</span>
+            <del *ngIf="bool"> {{ deliveryCharge }}</del>
+
+            <span *ngIf="bool"> <i class="text-success"> free</i> </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h6>Total Price</h6></td>
+          <td>&#8377; {{ total }}</td>
+        </tr>
+      </table>
+      <div class="button w-100">
+        <button class="btn btn-success w-100 " (click)="nextStep()" type="button">PLACE ORDER</button>
+      </div>
+    </div>
+  </div>
+</div>

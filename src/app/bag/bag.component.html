@@ -1,0 +1,136 @@
+<div class="container mt-5">
+  <div class="row" *ngIf="cartIsEmpty">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="card border border-success">
+          <div class="card g-0 m-2 border border-dark" *ngFor="let v of activeProducts">
+            <div class="row">
+              <div class="col-sm-2">
+                <img src="{{ v.photo }}" width="100%" alt="" />
+              </div>
+              <div class="col-sm-8">
+                <!-- title -->
+                <h4>{{ v.prod_name }}</h4>
+                <!--author  -->
+
+                <small>{{ v.author }} </small>
+
+                <br />
+
+                <small>Qty:</small>
+                <br />
+
+                <button class="btn btn-danger me-3" (click)="removeItemfromCart(v)">
+                  Remove from Cart
+                </button>
+                <button class="btn btn-secondary"    (click) = "wish(v)" >Move to Wishlist</button>
+              </div>
+              <div class="col-sm-2 text-center align-content-center">
+                <h6 class="pt-5">&#8377; : {{ v.prod_price }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <h6 class="mt-5" [ngClass]="checkCart ? 'd-block text-danger' : 'd-none'">
+          Cart Products Out of Stock
+        </h6>
+
+        <div class="card border border-success" [ngClass]="checkCart ? 'd-block text-danger' : 'd-none'">
+          <div class="card g-0 m-2 border border-dark" *ngFor="let v of deletedProducts">
+            <div class="row">
+              <div class="col-sm-2">
+                <img src="{{ v.photo }}" width="100%" alt="" />
+              </div>
+              <div class="col-sm-8">
+                <!-- title -->
+                <h4>{{ v.prod_name }}</h4>
+                <!--author  -->
+
+                <small>{{ v.author }} </small>
+
+                <br />
+
+                <small>Qty:</small>
+                <br />
+
+                <button class="btn btn-danger me-3" (click)="removeItemfromCart(v)">
+                  Remove from Cart
+                </button>
+                <button (click)="cliked()" [ngClass]="checkCart ? 'disabled' : 'active'" class="btn btn-secondary">
+                  Move to Wishlist
+                </button>
+              </div>
+              <div class="col-sm-2 text-center align-content-center">
+                <h6 class="pt-5">&#8377; : {{ v.prod_price }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <small>PRICE DETAILS</small>
+
+      <table class="table table-0">
+        <tr *ngFor="let item of cart">
+          <td>
+            <a routerLink="" class="nav-link">
+              {{ item.prod_name }}
+            </a>
+          </td>
+          <td>&#8377; {{ item.prod_price }}</td>
+        </tr>
+
+        <tr>
+          <td>
+            <p>Total MRP:</p>
+          </td>
+          <td>
+            &#8377; <span> {{ sum }} </span>
+            <span> </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Deleivery Charges</p>
+          </td>
+
+          <td>
+            &#8377; <span *ngIf="!bool"> {{ deliveryCharge }}</span>
+            <del *ngIf="bool"> {{ deliveryCharge }}</del>
+
+            <span *ngIf="bool"> <i class="text-success"> free</i> </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h6>Total Price</h6>
+          </td>
+          <td>&#8377; {{ total }}</td>
+        </tr>
+      </table>
+      <div class="button w-100">
+        <button class="btn btn-success w-100" [ngClass]="checkCart ? 'disabled' : 'active'" type="button"
+          (click)="placeOrder()">
+          PLACE ORDER
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card text-center justify-content-center align-items-center" *ngIf="!cartIsEmpty">
+  <div class="row" style="margin-top: 100px; margin-bottom: 100px">
+    <i class="fas fa-cart-arrow-down" style="font-size: 100px; color: #049ad1"></i>
+    <p class="h6 mt-3">Your cart is empty</p>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->

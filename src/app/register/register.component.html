@@ -1,0 +1,71 @@
+<div class="container w-50 mb-4">
+  <div class="card  register-div-card rounded-pill p-5">
+      <div class="card-body">
+          <form  #formRef="ngForm"  (ngSubmit)="clickedSubmit(formRef)"  class="register-form-submit">
+              <div class="form-group">
+                  <div class="row ms-3">
+                      <div class="ms-5">
+                      <div class="form-check form-check-inline form-switch">
+                          <input class="form-check-input" type="radio" name="radioType" id="user" value="userChecked" ngModel #user="ngModel">
+                          <label class="form-check-label" for="exampleRadios1">User</label>
+                      </div>
+                      <div class="form-check form-check-inline form-switch">
+                          <input class="form-check-input" type="radio" name="radioType" id="admin" value="adminChecked" ngModel #admin="ngModel">
+                          <label class="form-check-label" for="exampleRadios2">Admin</label>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="row m-3">
+                      <div class="col-sm-2">
+                          <label for="email">Email</label>
+                      </div>
+                      <div class="col-sm-10">
+                          <input name="email" id="email" placeholder="Email" type="email" class="form-control" ngModel minlength="3" maxlength="35" #email="ngModel" required/>
+                          <!-- (change)="log(email)" -->
+                          <div class="fw-bold input-valid " *ngIf=" email.touched && !email.valid"> 
+                              <div *ngIf="email.errors.required">Email is required</div> 
+                              <div  *ngIf="email.errors.minlength || email.errors.maxlength" >Please enter field length in between 3 and 15</div>
+                              <!-- <div *ngIf="email.errors.pattern"></div> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row m-3">
+                  <div class="col-sm-2">
+                      <label for="username">Username</label>
+                  </div>
+                  <div class="col-sm-10">
+                      <input name="username" id="username" type="text" placeholder="Username" class="form-control register-input-username" minlength="3" maxlength="15" #username="ngModel" required ngModel/>
+                      <!-- (change)="log2(username)" -->
+                      <div class="fw-bold input-valid" *ngIf=" username.touched && !username.valid"> 
+                          <div *ngIf="username.errors.required">Username is required</div> 
+                          <div  *ngIf="username.errors.minlength || username.errors.maxlength" >
+                                  Please enter field length in between 3 and 15
+                          </div>
+                          
+                      </div>
+              
+                  </div>
+              </div>
+              <div class="row m-3">
+                  <div class="col-sm-2">
+                      <label for="password">Password</label>
+                  </div>
+                  <div class="col-sm-10">
+                      <input name="password" id="password" type="password" placeholder="Password" class="form-control" minlength="3" maxlength="15" #password="ngModel" required ngModel />
+                      <!-- (change)="log3(password)" -->
+                      <div class="fw-bold input-valid" *ngIf=" password.touched && !password.valid"> 
+                          <div *ngIf="password.errors.required">Password is required</div> 
+                          <div  *ngIf="password.errors.minlength || password.errors.maxlength" >
+                                  Please enter field length innbetween 3 and 15
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <button type="submit" [disabled]="!formRef.valid" class="register-button-submit">Create Account</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

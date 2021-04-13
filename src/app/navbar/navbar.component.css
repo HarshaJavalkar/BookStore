@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,900;1,900&display=swap");
+.x {
+  margin: 0 auto;
+  display: block;
+  padding: 10%;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 30px 5px;
+}
+ul,
+li {
+  list-style: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  font-size: 10px;
+  font-family: "Roboto Cn", sans-serif;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+nav:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.container {
+  /* max-width: 120rem; */
+  width: 90%;
+  margin: 0 auto;
+}
+
+nav {
+
+  padding-top: 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+
+
+  padding-bottom: 0.5rem;
+}
+
+.branding {
+  color: darkblue;
+  padding: 30px;
+  font-size: 22pt;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+}
+
+.brand span {
+  color: crimson;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  transform: translateX(100rem);
+  transition: 0.5s;
+  animation: slideIn 0.5s forwards;
+}
+
+nav ul li:nth-child(1) {
+  animation-delay: 0s;
+}
+
+nav ul li:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+nav ul li:nth-child(3) {
+  animation-delay: 1s;
+}
+
+nav ul li:nth-child(4) {
+  animation-delay: 1.5s;
+}
+nav ul li:nth-child(5) {
+  animation-delay: 1.7s;
+}
+nav ul li:nth-child(6) {
+  animation-delay: 1.8s;
+}
+nav ul li:nth-child(7) {
+  animation-delay: 1.9s;
+}
+
+nav ul li a {
+  padding: 1rem 0;
+  margin: 0 3rem;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+nav ul li a:last-child {
+  margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #049ad1;
+  left: 0;
+  transform: scaleX(0);
+  transition: all 0.5s;
+}
+
+nav ul li a::before {
+  top: 0;
+  transform-origin: left;
+}
+
+nav ul li a::after {
+  bottom: 0;
+  transform-origin: right;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: opacity 650ms;
+  transform: scale(0);
+  opacity: 0;
+  display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+
+
+
+/* Search Box */
+
+
+
+
+/* Search Box End */
+@keyframes slideIn {
+  from {
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+  }
+.branding{
+  padding: 10px;
+}
+  nav ul li a {
+    margin: 0;
+    /* font-size: 2.5rem; */
+  }
+
+  .overlay.menu-open,
+  nav.menu-open {
+    display: flex;
+    transform: scale(1);
+    opacity: 1;
+  }
+}

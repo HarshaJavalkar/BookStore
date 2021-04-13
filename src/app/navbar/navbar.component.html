@@ -1,0 +1,72 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg  sticky-top">
+  <a class="branding" *ngIf="(loggedin() && loginType())" routerLink="useraccount/{{username}}/home">Online Book Store</a>
+  <a class="branding"  *ngIf="(!loggedin() )   "  routerLink="home">Online Book Store</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <i class="fa fa-bars h1"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto me-5">
+
+     
+
+
+      <li class="nav-item" *ngIf="(loggedin() && loginType()) ">
+        <a class="nav-link" routerLink="useraccount/{{username}}/home"> <i class="fa fa-home"></i> Home</a>
+      </li>
+
+
+      
+      <li class="nav-item" *ngIf="(!loggedin() )   ">
+        <a class="nav-link" routerLink="home"> <i class="fa fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item active" *ngIf=" loginType() ">
+        <a class="nav-link" routerLink="userprofile/{{username}}"><i class="fa fa-user-alt"></i> Profile  <span class="sr-only"></span></a>
+      </li>
+
+      
+
+      <li class="nav-item active" *ngIf="loggedin() &&  !loginType()"  >
+        <a class="nav-link" routerLink="account"><i class="fa fa-user-alt"></i> My Account  <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item" *ngIf="loggedin() && loginType()"    >
+        <a class="nav-link" routerLink="useraccount/{{username}}/cart"> <i class="fa fa-shopping-cart"></i> Cart</a>
+      </li>
+
+      <li class="nav-item" *ngIf="loggedin()  && loginType()" >
+        <a class="nav-link" routerLink="useraccount/{{username}}/orders"> <i class="fa fa-rv"></i> My Orders</a>
+      </li>
+    
+
+      <li class="nav-item" *ngIf="loggedin() && loginType()">
+        <a class="nav-link" routerLink="useraccount/{{username}}/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
+      </li>
+    
+      <li class="nav-item" *ngIf="!loggedin()">
+        <a class="nav-link"  routerLink="login"><i class="fa fa-sign-in"></i> Login</a>
+      </li>
+    
+      <li class="nav-item" *ngIf="loggedin()">
+        <a class="nav-link text-danger"  (click)="logOutUser()" routerLink="login"><i class="fad fa-sign-out"></i> Logout</a>
+      </li>
+
+    
+    
+    
+
+    </ul>
+
+  </div>
+</nav>

@@ -1,0 +1,41 @@
+<div class="containerCss mb-5">
+  <div class="row row-cols-1 row-cols-md-4">
+    <div
+      class="flip-card mt-5"
+      *ngFor="let book of filteredBooks"
+      style="width: 280px; height: 300px"
+    >
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="{{ book.photo }}"
+            class="responsive"
+            alt="Avatar"
+            
+            style="width: auto; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back w-100 align-items-center"    >
+         <div class="card border border-warning bg-secondary  p p-5" > 
+                     <h3  (click)="prodinfo(book._id)"  class="navigate-to-Product">{{ book.prod_name }}</h3>
+                      <h6>-{{book.author}}</h6>
+                     <h5><i class="fa fa-rupee-sign"></i> {{book.prod_price}} </h5>
+
+           
+
+   
+          <div class="card-footer bg-white mt-3 p-2" >
+            <i class="h3 text-success fa fa-shopping-cart me-3"  (click)="clickedCart(book)"></i>
+            <i class="ms-3 text-danger h3 fa fa-heart" (click)="clickedWishlist(book)"> </i>
+
+
+          </div>
+
+           <button class="btn btn-success"  (click)="prodinfo(book._id)"> INFO </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

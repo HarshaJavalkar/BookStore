@@ -1,0 +1,335 @@
+@import url(https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka One", cursive;
+  color: #149ad1;
+  justify-content: center;
+}
+.login-h1-quote {
+  position: absolute;
+  color: #000;
+  font-size: 52px;
+  top: 40%;
+  left: 20%;
+  text-align: center;
+  color: #fff;
+  font-family: "Fredoka One", cursive;
+}
+::selection {
+  background: #149ad1;
+  color: #fff;
+}
+section {
+  height: 500px;
+  width: 100%;
+  background-color: #149ad1;
+  position: relative;
+  animation: left 0.75s ease-out;
+}
+section::after {
+  background-color: #149ad1;
+  width: 100%;
+  height: 175px;
+  position: absolute;
+  content: " ";
+  bottom: -75px;
+  transform: skewY(3.5deg);
+}
+.card {
+  background-color: #fff;
+  position: absolute;
+  top: 19%;
+  z-index: 100;
+  border-radius: 40px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25),
+    inset -5px -5px 20px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.25);
+  animation: right 0.75s ease-in;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  align-items: flex-center;
+  height: 100%;
+  justify-items: space-between;
+}
+.pass,
+.user {
+  position: relative;
+}
+.content i {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #149ad1;
+  font-size: 1.125rem;
+}
+input[type="password"],
+input[type="text"] {
+  margin: 0.75em 0;
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  padding: 0.8em 1.5em 0.8em 2.75em;
+  color: #149ad1;
+  box-shadow: 1px 3px 10px #00000020, inset -1px -3px 10px #00000020,
+    inset 1px 3px 10px #ffffff20;
+}
+input[type="password"]::placeholder,
+input[type="text"]::placeholder {
+  color: #0e4c6690;
+  font-size: 1rem;
+  margin-left: 1em;
+}
+input[type="password"]:focus,
+input[type="text"]:focus {
+  outline: 0;
+}
+h2 {
+  margin: 1.5em;
+  font-size: 2rem;
+  text-align: center;
+}
+.else {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  margin: 0.5em auto;
+}
+.else span {
+  margin-left: auto;
+}
+.else label,
+.else span {
+  font-size: 0.75rem;
+  text-align: right;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: 250ms;
+}
+.else label {
+  margin-left: 0.5em;
+}
+label:hover,
+span:hover {
+  opacity: 100%;
+  text-decoration: underline;
+}
+label:active,
+span:active {
+  transform: scale(0.99);
+}
+input[type="submit"] {
+  background-color: #149ad1;
+  border: none;
+  color: #fff;
+  padding: 1.1em 2.5em;
+  border-radius: 100px;
+  margin: 1.2em auto;
+  cursor: pointer;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25),
+    inset -2px -3px 10px rgba(0, 0, 0, 0.35),
+    inset 2px 3px 10px rgba(255, 255, 255, 0.5);
+  letter-spacing: 1.25px;
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+input[type="submit"]:hover {
+  color: #fff;
+  box-shadow: inset -2px -3px 10px rgba(0, 0, 0, 0.35);
+  background: #0479ac;
+}
+input[type="submit"]:active {
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25),
+    inset -2px -3px 10px rgba(255, 255, 255, 0.35),
+    inset 2px 3px 10px rgba(0, 0, 0, 0.25);
+}
+input[type="submit"]:focus {
+  outline: 0;
+}
+.h {
+  font-size: 100px;
+}
+section::before {
+  background-color: #fff;
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  content: " ";
+  top: -100px;
+  transform: skewY(-3.5deg);
+}
+.fa-instagram {
+  position: absolute;
+  color: #149ad1;
+  bottom: 20%;
+  left: 20%;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.toast {
+  font-size: 22px;
+  padding: 5px;
+  background-color: #149ad1;
+  position: relative;
+  margin: 50px   0  0  55% ; 
+   
+}
+.instagram:hover .fa-instagram {
+  color: #149ad1;
+}
+@keyframes right {
+  0% {
+    transform: translateX(700%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .card {
+    width: 400px;
+    height: 550px;
+    right: 25%;
+  }
+  .login-div-patch {
+    width: 100%;
+    height: 200px;
+  }
+  section {
+    height: 60vh;
+  }
+  .login-h1-quote {
+    font-size: 52px;
+    top: 40%;
+    left: 19.5%;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .card {
+    width: 400px;
+    height: 550px;
+    right: 20%;
+  }
+  .login-h1-quote {
+    font-size: 42px;
+    top: 45%;
+    left: 12%;
+  }
+  .login-div-patch {
+    width: 100%;
+    height: 300px;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 1.12rem;
+  }
+  section {
+    height: 45vh;
+  }
+  h2 {
+    margin: 1.5em;
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .card {
+    width: 400px;
+    height: 550px;
+    right: 20%;
+  }
+  .login-h1-quote {
+    display: none;
+  }
+  .login-div-patch {
+    width: 100%;
+    height: 300px;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 1.12rem;
+  }
+  section {
+    height: 45vh;
+  }
+  h2 {
+    margin: 1.5em;
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 350px;
+    height: 470px;
+    right: 15%;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 1rem;
+  }
+  .login-h1-quote {
+    display: none;
+  }
+  section {
+    height: 35vh;
+  }
+  h2 {
+    margin: 1.5em;
+    font-size: 1.7rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .card {
+    width: 300px;
+    height: 500px;
+    right: 20%;
+    left: 10%;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 0.8rem;
+  }
+  section {
+    height: 30vh;
+  }
+  h2 {
+    margin: 1.5em;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .card {
+    width: 270px;
+    height: 450px;
+    right: 20%;
+    left: 10%;
+  }
+  input[type="password"],
+  input[type="text"] {
+    font-size: 0.8rem;
+  }
+  section {
+    height: 30vh;
+  }
+  h2 {
+    margin: 1.5em;
+    font-size: 1.5rem;
+  }
+}

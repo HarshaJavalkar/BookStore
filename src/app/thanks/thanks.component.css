@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+section{
+
+ padding:40px;
+    width: 100%;
+
+
+ position: absolute;
+ 
+
+    justify-content: center;
+    height: 1000px;
+    background-color: rgb(145, 248, 255);
+}
+
+.content{
+    align-items: center;
+    margin-top: 10%;
+}
+.fa-handshake{
+
+ color: darkblue;
+ font-size: 95px;
+   
+
+
+}
+.head1{
+
+
+    font-size: 32px;
+    color: darkblue;
+}
+.head2{
+
+    font-size: 25px;
+    font-family: 'Lobster', cursive;  
+
+}
+

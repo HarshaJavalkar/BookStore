@@ -1,0 +1,14 @@
+.press-release {
+    min-height: 400px;
+  
+    height: 60%;
+  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    background-size:auto;
+    background-image: url("../../assets/stydyBOOK-removebg-preview.png");
+    color: white;
+  }
+  

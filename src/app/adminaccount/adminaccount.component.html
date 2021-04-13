@@ -1,0 +1,151 @@
+
+    <div class="container-fluid d-flex">    
+
+      <div>    <i class="fa fa-bars" (click)="toggleMenu()"></i>
+
+      <div class="navigation card" [ngClass]="status ? 'active' : ''">
+        <ul class="m-0 p-0">
+          <li>
+            <a routerLink="account">
+              <span class="icon"><i class="fas fa fa-home"></i> </span>
+
+              <span class="title"> Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="adminprofile">
+              <span class="icon"> <i class="fas fa fa-id-card-alt"></i> </span>
+
+              <span class="title">Profile </span>
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="addnew">
+              <span class="icon"> <i class="far fa fa-plus-square"></i></span>
+
+              <span class="title">Add Product </span>
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="update">
+              <span class="icon"> <i class="fad fa fa-wrench"></i></span>
+
+              <span class="title">Update or Delete </span>
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="salesinfo">
+              <span class="icon">
+                <i class="fas fa fa-balance-scale-left"></i>
+              </span>
+
+              <span class="title">Sales </span>
+            </a>
+          </li>
+
+          <li>
+            <a  (click)="logout()">
+              <span class="icon text-danger"> <i class="fas fa fa-sign-out-alt"></i> </span>
+
+              <span class="title text-danger ">Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <h1 class="helper"></h1> -->
+  
+    </div>
+
+
+    <div class="w-100 container   text-center  mt-5"  [ngClass]="status ? '' : 'helperCenter'" >
+
+      <div class="navigation-bar card" [ngClass]="status ? 'active' : ''">
+        <ul class="m-0  p-0" >
+          <table class="table ">
+
+
+            <tr  >
+            
+              <a routerLink="account">
+      
+                <span class="title"> Home</span>
+                <span class="icon"><i class="fas fa fa-home"></i> </span>
+      
+              </a>
+      
+            </tr>
+      
+            <tr >
+      
+              <a routerLink="adminprofile">
+      
+                <span class="title">Profile </span>
+                <span class="icon"> <i class="fas fa fa-id-card-alt"></i> </span>
+      
+              </a>
+      
+            </tr>
+            
+      
+            <tr>
+      
+              <a routerLink="addnew">
+      
+                <span class="title">Add Product </span>
+      
+                <span class="icon"> <i class="far fa fa-plus-square"></i></span>
+      
+              </a>
+      
+            </tr>
+            
+            <tr>
+              <a routerLink="update">
+      
+                <span class="title">Update or Delete </span>
+                <span class="icon"> <i class="fad fa fa-wrench"></i></span>
+      
+              </a>
+      
+            </tr>
+            
+            <tr>
+              <a routerLink="salesinfo">
+              
+      
+                <span class="title">Sales </span>
+      
+                <span class="icon">
+                  <i class="fas fa fa-balance-scale-left"></i>
+                </span>
+              </a>
+      
+            </tr>
+            
+      
+            <tr>
+      
+              <a  (click)="logout()">
+      
+      
+                <span class="title">Sign Out</span>
+                <span class="icon"> <i class="fas fa fa-sign-out-alt"></i> </span>
+              </a>
+      
+            </tr>
+           </table>
+             
+
+
+         </ul>
+      </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+</div>

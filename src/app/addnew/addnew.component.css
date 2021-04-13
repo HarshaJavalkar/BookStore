@@ -1,0 +1,89 @@
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border: 2px solid red;
+  }
+
+  .card {
+    background-color: #fff;
+    /* position: absolute; */
+    /* top: 19%; */
+    z-index: 100;
+    border-radius: 40px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25),
+      inset -5px -5px 20px rgba(0, 0, 0, 0.25),
+      inset 5px 5px 20px rgba(255, 255, 255, 0.25);
+    animation: right 0.75s ease-in;
+  }
+
+  input[type="submit"] {
+    background-color: #149ad1;
+    border: none;
+    color: #fff;
+    padding: 1.1em 2.5em;
+    border-radius: 100px;
+    margin: 1.2em auto;
+    cursor: pointer;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25),
+      inset -2px -3px 10px rgba(0, 0, 0, 0.35),
+      inset 2px 3px 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: 1.25px;
+    font-weight: bolder;
+    letter-spacing: 5px;
+  }
+  input[type="submit"]:hover {
+    color: #fff;
+    box-shadow: inset -2px -3px 10px rgba(0, 0, 0, 0.35);
+    background: #0479ac;
+  }
+  input[type="submit"]:active {
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.25),
+      inset -2px -3px 10px rgba(255, 255, 255, 0.35),
+      inset 2px 3px 10px rgba(0, 0, 0, 0.25);
+  }
+  input[type="submit"]:focus {
+    outline: 0;
+  }
+
+  .bgColorForm{
+
+    background-color: darkblue;
+  }
+
+
+
+input[type="text"],
+input[type="number"],
+input[type="file"],.file ,option ,textarea,select {
+  margin: 0.75em 0;
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  padding: 0.8em 1.5em 0.8em 2.75em;
+  color: #149ad1;
+  box-shadow: 1px 3px 10px #00000020, inset -1px -3px 10px #00000020,
+    inset 1px 3px 10px #ffffff20;
+}
+
+input::placeholder {
+  color: #0e4c6690;
+  font-size: 1rem;
+  margin-left: 1em;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.toast {
+  font-size: 22px;
+  padding: 5px;
+  background-color: #149ad1;
+  position: fixed;
+  top:10%;
+ left:40%;
+justify-content: center;
+  z-index: 5;
+
+   
+}
+

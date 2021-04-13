@@ -1,0 +1,75 @@
+.fa-edit, .fa-trash-alt{
+
+
+    cursor: pointer;
+    transition: 0.8s;
+    
+}
+
+td{
+    vertical-align:middle;
+    text-align: center;
+}
+
+.fa-edit:hover, .fa-trash-alt:hover,.tooltip{
+   
+    visibility: visible;
+    font-size: 34px;
+    color:#049ad1;
+
+}
+
+.save{
+    color:darkblue;
+    cursor: pointer;
+}
+
+.save:hover{
+
+    text-decoration: underline;
+    font-size: 18px;
+    
+    cursor: pointer;
+}
+
+
+
+
+input[type="text"],
+input[type="number"],
+textarea {
+  margin: 0.75em 0;
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  padding: 0.8em 1.5em 0.8em 2.75em;
+  color: #149ad1;
+  box-shadow: 1px 3px 10px #00000020, inset -1px -3px 10px #00000020,
+    inset 1px 3px 10px #ffffff20;
+}
+
+input::placeholder {
+  color: #0e4c6690;
+  font-size: 1rem;
+  margin-left: 1em;
+}
+
+input:focus {
+  outline: 0;
+
+
+
+}
+
+
+.tooltip{
+
+
+    visibility: hidden;
+}
+
+
+
+
+
+

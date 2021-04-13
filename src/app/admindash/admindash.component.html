@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-sm-2">
+     
+           
+         
+        
+            <div id="sidebar">
+              <div class="sidebar__title">
+                <div class="sidebar__img">
+                
+                </div>
+                <i
+                  onclick="closeSidebar()"
+                  class="fa fa-times"
+                  id="sidebarIcon"
+                  aria-hidden="true"
+                ></i>
+              </div>
+          
+              <div class="sidebar__menu">
+                <div class="sidebar__link active_menu_link">
+                  <i class="fa fa-home"></i>
+                  <a routerLink="adminprofile"> My Profile</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-book"></i>
+                  <a routerLink="addnew">Add products</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-book"></i>
+                  <a routerLink="#">Update/Delete</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-book"></i>
+                  <a routerLink="store">Store</a>
+                </div>
+                
+                <h2>MNG</h2>
+                <div class="sidebar__link">
+                  <i class="fa fa-user-secret" aria-hidden="true"></i>
+                  <a routerLink="#">Admin Management</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-building-o"></i>
+                  <a routerLink="#">Company Management</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-wrench"></i>
+                  <a routerLink="#">Seller Management</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-archive"></i>
+                  <a routerLink="#">Warehouse</a>
+                </div>
+                <div class="sidebar__link">
+                  <i class="fa fa-handshake-o"></i>
+                  <a routerLink="#">Contracts</a>
+                </div>
+                <div class="sidebar__logout">
+                  <i class="fa fa-power-off"></i>
+                  <a routerLink="#">Log out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div class="col-sm-10"><router-outlet></router-outlet></div>
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="script.js"></script>

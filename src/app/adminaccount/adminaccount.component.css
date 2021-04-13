@@ -1,0 +1,268 @@
+.navigation{
+
+    background-color: darkblue;
+    width: 60px;
+
+
+   transition: 0.5s;
+   overflow: hidden;
+
+   border-radius: 10px;
+
+}
+
+.navigation-bar{
+    border-radius: 20px;
+}
+
+.navigation-bar ul table{
+     text-align: center;
+} 
+
+.navigation-bar ul table tr {
+
+    text-decoration: none;
+  
+    padding:20px;
+    color: #fff;
+    margin-top: 20px;
+ 
+}
+
+
+.navigation-bar ul table tr a{
+
+    text-decoration: none;
+    width:100%;
+    color: #fff;
+}
+
+
+
+
+.navigation.active
+{
+
+
+  width: 300px;
+}
+
+
+.navigation ul
+ 
+{
+    
+  left:0;
+    width: 100%;
+
+
+
+
+}
+
+.navigation ul li
+
+{
+  
+    left: 0px;
+    position: relative;
+    padding: 15px;
+    padding-bottom: 0px;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+
+
+
+
+}
+
+
+
+/* test  1*/
+
+sidebar.css
+
+.navigation-bar ul table tr a {
+text-decoration: none;
+color: seashell;
+
+}
+.navigation-bar {
+  background-color:darkblue;
+}
+.navigation-bar ul table tr{
+    border-collapse: inherit;
+
+    padding: 30px;
+
+}
+
+.navigation-bar ul table tr a{
+
+    padding:10px;
+}
+.navigation-bar ul table tr:hover {
+  border-collapse: inherit;
+
+  padding-left: 0;
+
+  background-color:#049ad1;
+  
+
+ 
+  
+  
+  }
+
+  
+  .navigation-bar ul table {
+    border-collapse: inherit;
+    border-spacing: 0 8px;
+}
+
+.title {
+  font-weight:bold;
+}
+
+
+/* test end  */
+
+.navigation ul :hover
+{
+
+background : #049ad1;
+
+border-radius: 10px;
+
+
+}
+.navigation ul li a
+{
+
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+
+}
+
+.navigation ul li a  .icon
+
+{
+
+    position: relative;
+    display: block;
+    padding-right: 50px;
+     min-width: 0px;
+    height:  60px;
+    line-height: 10px;
+    
+
+}
+
+
+
+.navigation ul li a .icon .fa
+{
+
+  font-size: 34px;
+
+}
+
+
+
+
+.navigation ul li a .title {
+
+    position: relative;
+    display: block;
+    padding:10px;
+    height: 60px;
+    text-align:left;
+    white-space: nowrap;
+    font-weight: bold;
+  
+
+
+   color: #fff;
+}
+
+
+
+.toggle{
+
+
+    cursor: pointer;
+
+    font-family: "Font Awesome 5 Free"; font-weight: 900; 
+
+
+}
+.fa-bars{
+
+
+    font-size: 34px;
+
+   padding: 15px;
+   cursor: pointer;
+        
+}
+
+.fa-bars:hover{
+    background-color: #049ad1;
+    border-radius: 20px;
+}
+
+
+
+.helper{
+    height: 1000px;
+}
+
+
+
+.tab{
+
+
+    width: auto;
+    border: none;
+}
+
+
+
+.helperCenter{
+
+
+    justify-content: center;
+}
+
+.navigation-bar{
+
+    display:none;
+}
+
+
+@media only screen and (max-width: 610px ){
+
+
+    .navigation{
+
+        display: none;
+    }
+
+    
+    
+.navigation-bar.active{
+
+background-color: darkblue;
+    display:block;
+}
+
+
+    
+    
+}

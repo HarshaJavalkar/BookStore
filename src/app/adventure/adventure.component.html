@@ -1,0 +1,160 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card mt-5 adventure-div-card" data-aos="zoom-out-up">
+      <div class="card-header">
+        <h3>Biography</h3>
+      </div>
+      <div class="row">
+        <div class="col-sm-3" style="width: 250px">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/81VStYnDGrL.jpg"
+            width="100%"
+            alt=""
+          />
+        </div>
+        <div class="col-sm-9 text-center mt-5">
+          <h6 class="adventure-h6-caption mt-5">
+            “Sometimes when you innovate, you make mistakes. It is best to admit
+            them quickly, and get on with improving your other innovations.” ―
+            Steve Jobs
+          </h6>
+
+          <button class="btn1 text-center mt-5">
+            EXPLORE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-sm-4">
+    <div class="card" style="width: 450px">
+      <div class="card-header">
+        <h3>Adventure</h3>
+      </div>
+
+      <img
+        class="card-img-top"
+        src="https://images.unsplash.com/photo-1529180979161-06b8b6d6f2be?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text adventure-h6-caption mt-5">
+          “A journey of a thousand miles must begin with a single step.”
+        </p>
+
+        <button class="btn1 text-center mt-5">EXPLORE</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 450px">
+      <div class="card-header">
+        <h3>Bussiness</h3>
+      </div>
+
+      <img
+        class="card-img-top"
+        src="https://i.pinimg.com/564x/42/8f/28/428f28de525ea9384046d21634f81c9e.jpg"
+        style="width: 100%"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text adventure-h6-caption mt-5">
+          “Good tactics can save even the worst strategy. Bad tactics will
+          destroy even the best strategy.”
+        </p>
+        <button class="btn1 text-center mt-5">EXPLORE</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 450px">
+      <div class="card-header">
+        <h3>Crime</h3>
+      </div>
+      <img
+        class="card-img-top"
+        src="http://i.imgur.com/YSsnZJ1.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2 fw-bold mt-4">Adventure</h2>
+<div class="scrolling-wrapper">
+  <div
+    class="card-wrap me-3"
+    data-aos="zoom-out-up"
+    *ngFor="let adventure of adventureBooks"
+  >
+    <div class="newsCard news-Slide-up">
+      <img [src]="adventure.photo" />
+      <div class="newsCaption">
+        <h2 class="newsCaption-title h2">{{ adventure.prod_name }}</h2>
+        <h4 class="text-white mt-1">
+          <em> Author:{{ adventure.author }} </em>
+        </h4>
+
+        <p class="newsCaption-content">
+          {{ adventure.prod_desc }}
+        </p>
+        <p><a class="newsCaption-link" href="#">READ MORE</a> ></p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2 fw-bold mt-4">Biography</h2>
+<div class="scrolling-wrapper">
+  <div class="card-wrap me-3" *ngFor="let adventure of adventureBooks">
+    <div class="newsCard news-Slide-up">
+      <img [src]="adventure.photo" />
+      <div class="newsCaption">
+        <h2 class="newsCaption-title h2">{{ adventure.prod_name }}</h2>
+        <h4 class="text-white mt-1">
+          <em> Author:{{ adventure.author }} </em>
+        </h4>
+
+        <p class="newsCaption-content">
+          {{ adventure.prod_desc }}
+        </p>
+        <p><a class="newsCaption-link" href="#">READ MORE</a> ></p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2 fw-bold mt-4">Bussiness</h2>
+<div class="scrolling-wrapper">
+  <div class="card-wrap me-3" *ngFor="let adventure of adventureBooks">
+    <div class="newsCard news-Slide-up">
+      <img [src]="adventure.photo" />
+      <div class="newsCaption">
+        <h2 class="newsCaption-title h2">{{ adventure.prod_name }}</h2>
+        <h4 class="text-white mt-1">
+          <em> Author:{{ adventure.author }} </em>
+        </h4>
+
+        <p class="newsCaption-content">
+          {{ adventure.prod_desc }}
+        </p>
+        <p><a class="newsCaption-link" href="#">READ MORE</a> ></p>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>

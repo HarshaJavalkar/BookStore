@@ -1,0 +1,174 @@
+
+   
+
+    
+    <div class="card ">
+        <div class="toast "  role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 5">
+            <div class="toast-header ">
+              {{toastMessage}}
+            </div>
+           
+          </div>
+        
+
+        <div class="card-body">
+            <form #ref="ngForm" (ngSubmit)="addProd(ref)">
+                <div class="row  mt-5 ">
+                    <div class="col-sm-2 ">
+                        <label for="type">Category</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <select name="type"  id="type" ngModel #type="ngModel"  class="" aria-label="Default select example" required>
+                            <!-- <option selected aria-readonly="true">  Select The Category</option> -->
+
+                            <option *ngFor="let typename of typeArray"   class="">{{typename}}</option>
+                        </select>
+
+
+
+                        <!-- error message for book category -->
+                        <div class="fw-bold input-valid" *ngIf=" type.touched && !type.valid"> 
+                            <div class="text-danger" class="text-danger"  *ngIf="type.errors.required  ">Type of the book is required</div>
+
+                          
+                        </div>
+                        <p class="text-danger fw-bold" *ngIf="validity && !type.valid"   > *required</p>
+
+                    </div>
+                </div>
+                <div class="row  mt-5">
+                    <div class="col-sm-2">
+                        <label for="prod_id">Product ID</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input autocomplete="on" type="number" id="prod_id" placeholder="Id" name="prod_id" class="" ngModel minlength="1" maxlength="6" #prod_id="ngModel" pattern="^(?![0])[0-9]*$" required>
+                        
+                         <!-- error message for book id -->
+                        
+                        <div class="fw-bold input-valid" *ngIf=" prod_id.touched && !prod_id.valid"> 
+                            <div class="text-danger"  class="text-danger"  *ngIf="prod_id.errors.required">product Id is required</div>
+                            <div class="text-danger"  class="text-danger"  *ngIf="prod_id.errors.pattern">Invalid product Id</div> 
+                            <div  class="text-danger"  class="text-danger"  *ngIf="prod_id.errors.minlength || prod_id.errors.maxlength" >
+                                    Please enter field length in between 1 and 6
+                            </div>
+                        </div>
+
+                        <p class="text-danger fw-bold" *ngIf="validity && !prod_id.valid"> *required</p>
+
+                    </div>
+                </div>
+                <div class="row  mt-5  ">
+                    <div class="col-sm-2">
+                        <label for="prod_name">Product Name</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input autocomplete="on" type="text" id="prod_name" placeholder="Product name" name="prod_name" class="" ngModel minlength="5" maxlength="20" #prod_name="ngModel" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required>
+                       
+                          <!-- error message for product name -->
+                        <div class="fw-bold input-valid" *ngIf=" prod_name.touched && !prod_name.valid"> 
+                            <div class="text-danger"  *ngIf="prod_name.errors.required">Product Name is required</div>
+                            <div class="text-danger"  *ngIf="prod_name.errors.pattern">Invalid Product Name</div> 
+                            <div  class="text-danger"  *ngIf="prod_name.errors.minlength || prod_name.errors.maxlength" >
+                                    Please enter field length in between 5 and 20
+                            </div>
+                        </div>
+
+                        <p class="text-danger fw-bold" *ngIf="validity && !prod_name.valid"   > *required</p>
+
+                    </div>
+                </div>
+                <div class="row  mt-5  ">
+                    <div class="col-sm-2">
+                        <label for="prod_desc">Description</label>
+                    </div>
+                    <div class="col-sm-10">
+
+                        <textarea id="prod_desc" placeholder="Description" name="prod_desc" class="" ngModel #prod_desc="ngModel" required></textarea>
+                       <!-- error message for book description  -->
+                        <div class="fw-bold input-valid" *ngIf=" prod_desc.touched && !prod_desc.valid"> 
+                            <div class="text-danger"  *ngIf="prod_desc.errors.required">Description is required</div>
+                        </div>
+                        <p class="text-danger fw-bold" *ngIf="validity && !prod_desc.valid"   > *required</p>
+                    </div>
+                </div>
+                <div class="row  mt-5 ">
+                    <div class="col-sm-2">
+                        <label for="author">Author</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input autocomplete="on" type="text" id="author" placeholder="Author" name="author" class="" ngModel minlength="3" maxlength="20" #author="ngModel" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required>
+                      
+                       <!-- error message for book author -->
+                        <div class="fw-bold input-valid" *ngIf=" author.touched && !author.valid"> 
+                            <div class="text-danger"  *ngIf="author.errors.required">Author Name is required</div>
+                            <div class="text-danger"  *ngIf="author.errors.pattern">Invalid Author Name</div> 
+                            <div  class="text-danger"  *ngIf="author.errors.minlength || author.errors.maxlength" >
+                                    Please enter field length in between 3 and 20
+                            </div>
+                        </div>
+
+                        <p class="text-danger fw-bold" *ngIf="validity && !author.valid"   > *required</p>
+
+                    </div>
+                </div>
+              
+                <div class="row  mt-5 ">
+                    <div class="col-sm-2">
+                        <label for="formFile">Product Image</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="mb-3">
+                            <input autocomplete="on" class="" type="file" name="photo" id="formFile" (change)="addimage($event)" accept="image/*" ngModel #product_image="ngModel" required>
+                            <div class="fw-bold input-valid" *ngIf="product_image.required &&product_image.touched"> 
+                                <div class="text-danger"  *ngIf="product_image.errors.required">Image is required</div>
+                            </div>
+                            <p class="text-danger fw-bold" *ngIf="validity && !product_image.valid"   > *required</p>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="row  mt-5">
+                    <div class="col-sm-2">
+                        <label for="prod_lang">Language</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <select name="prod_lang" id="prod_lang" ngModel #prod_lang="ngModel"  class="" required>
+                            <option [value]=typelang *ngFor="let typelang of typeLanguage"  class="">{{typelang}}</option>
+                        </select>
+                        <div class="fw-bold input-valid" *ngIf=" prod_lang.touched && !prod_lang.valid"> 
+                            <div class="text-danger"  *ngIf="prod_lang.errors.required">Language is required</div>
+                        </div>
+                        <p class="text-danger fw-bold" *ngIf="validity && !prod_lang.valid"   > *required</p>
+                    </div>
+                </div>
+
+
+
+                <div class="row  mt-5 ">
+                    <div class="col-sm-2">
+                        <label for="prod_price">Price</label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input autocomplete="on" type="number" id="prod_price" placeholder="Price" name="prod_price" class="form-control" ngModel #prod_price="ngModel" pattern="^[0-9]{1,5}\.[0-9]{2}$" required>
+                        <!-- error message for book price-->
+                        <div class="fw-bold input-valid" *ngIf=" prod_price.touched && !prod_price.valid"> 
+                        <div class="text-danger"  *ngIf="prod_price.errors.required">Price is required</div>
+                        <div class="text-danger"  *ngIf="prod_price.errors.pattern">Invalid price</div> 
+                        </div>
+
+                        <p class="text-danger fw-bold" *ngIf="validity && !prod_price.valid"   > *required</p>
+
+
+                    </div>
+                </div>
+
+            
+                <div class="text-center mt-3">
+                    <input autocomplete="on" type="submit"   class="btn btn-outline-success showtoast" value="SUBMIT">
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+   

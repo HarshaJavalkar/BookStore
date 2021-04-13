@@ -1,0 +1,78 @@
+
+<div class="cardCss">
+  <h1 class="text-center"> <span style="color:lightskyblue"> Welcome </span> {{username | titlecase}}</h1>
+
+
+<div class="row justify-content-center" >
+    <div class="col-sm-5">
+      <div class="card m-5 " >
+        <div class="card-body">
+          <h5 class="card-title">MY PROFLE</h5>
+          <hr>
+          <table class="table">
+            <tr>
+              <td> NAME </td>
+              <td> {{userprofile?.username}} </td>
+            </tr>
+            <tr>
+              <td>EMAIL</td>
+              <td>{{userprofile?.email}}</td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>******</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><p class="text-decoration-underline text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;" >Change Password</p></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form #ref="ngForm" (ngSubmit)="changePassword(ref)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        
+        <div class="row m-3">
+          <div class="col-sm-2">
+              <label for="password">Old</label>
+          </div>
+          <div class="col-sm-10">
+              <input name="password" id="password" type="password" placeholder="Password" class="form-control" minlength="3" maxlength="15" #password="ngModel" required ngModel />
+          </div>
+      </div>
+      <div class="row m-3">
+        <div class="col-sm-2">
+            <label for="new_password">New</label>
+        </div>
+        <div class="col-sm-10">
+            <input name="new_password" id="new_password" type="new_password" placeholder="new_Password" class="form-control" minlength="3" maxlength="15" #new_password="ngModel" required ngModel />
+        </div>
+    </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Change Password</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+
+</div>

@@ -1,0 +1,49 @@
+<div class="container" style="border: none">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="thumbnail" style="padding: 30px; border: none">
+        <img src="{{ product?.photo }}" class="responsive" width="100%" alt="" />
+
+      </div>
+    </div>
+
+    <div class="col-sm-9 desc">
+        <h4>
+          <b>{{ product?.prod_name }}</b>
+        </h4>
+        <p>Author: {{ product?.author}}</p>
+        <p>Category: {{ product?.type }}</p>
+
+        <div>
+          <h3><i class="fa fa-rupee-sign"></i> {{ product?.prod_price }}</h3>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="col-sm">
+            <h4>Description:</h4>
+            {{ product?.prod_desc }}
+          </div>
+        </div>
+    </div>
+      <div class="row mb-5">
+        <button class="btn col-sm-4 " style="
+            background-color: green;
+            color: #fff;
+            font-size: 1em;"
+            (click)="clickedCart(product)">
+          <i class="fas fa-shopping-cart"></i>&nbsp;Add to Cart
+        </button>
+
+        <button class="btn col-sm-4  " style="
+            background-color: #fb1b2e;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 20px;"
+            (click)="clickedWishlist(product)">
+          <i class="fas fa-heart" style="font-size: 1.2em"></i> Wishlist
+        </button>
+      </div>
+    
+  </div>
+</div>

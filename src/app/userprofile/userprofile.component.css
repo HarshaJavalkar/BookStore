@@ -1,0 +1,17 @@
+.cardCss{
+
+background-color: #049ad1;
+    border-radius: 10px;
+    
+
+}
+
+.card{
+
+
+    background-color: rgb(255, 255, 255);  
+    backdrop-filter: blur(100px);
+
+
+
+}

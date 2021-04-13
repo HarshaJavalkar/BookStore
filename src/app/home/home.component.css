@@ -1,0 +1,131 @@
+.app-div-corousel {
+  background-color: #333333;
+
+  height: 200px;
+  position: fixed;
+}
+
+.home-div-shadow {
+  background: rgb(219, 218, 218);
+  box-shadow: -5px -4px 3px 0px rgb(255, 255, 255, 0.425),
+    5px 4px 3px 0px rgb(201, 201, 201);
+}
+
+.wrap {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.colu {
+  display: inline-block;
+}
+
+.row {
+  background: rgb(180, 234, 255);
+}
+.containerCss {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  width: auto;
+
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+.press-release {
+  min-height: 300px;
+
+  height: 50%;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  background-image: url("../../assets/image-1-corousel.jpg");
+  color: white;
+}
+
+.btn {
+  background: #049ad1;
+  color: white;
+  font-weight: bolder;
+}
+
+/* Serach box start */
+
+.search-box {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+}
+.outer-container {
+  margin-top: 100px;
+}
+.search-btn {
+  color: #4097ff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  
+  float: left;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 10px;
+  width: 0px;
+}
+.search-box:hover > .search-txt {
+  width: 240px;
+  padding: 0 0px;
+}
+.search-box:hover > .search-btn {
+  background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* morquee start  */
+
+
+
+
+/* Search End */
