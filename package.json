@@ -70,5 +70,13 @@
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.",
   "main": "karma.conf.js",
   "author": "harsha javalkar",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarshaJavalkar/BookStore.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HarshaJavalkar/BookStore/issues"
+  },
+  "homepage": "https://github.com/HarshaJavalkar/BookStore#readme"
 }
