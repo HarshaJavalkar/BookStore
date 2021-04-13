@@ -9,7 +9,7 @@ const User = require("../models/User");
 
 const bcryptjs = require("bcryptjs");
 const verifyTokenMethod = require("./middlewares/verifytoken");
-const { errorComparator } = require("tslint/lib/verify/lintError");
+
 
 // const authSchema=require('../helpers/validation')
 
