@@ -61,9 +61,9 @@
 
 
 
+<!--MODAL-->
 
 
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -81,10 +81,18 @@
          
             <div class="row-1">
               <div class="row row-2">
-                <span id="card-inner">Card holder name</span>
+                <span id="card-inner" for="cHname">Card holder name</span>
               </div>
               <div class="row row-2">
-                <input type="text" name="cHname" placeholder="name" ngModel />
+                <input type="text" name="cHname" placeholder="name" ngModel id="cHname" minlength="3" maxlength="20" #cHname="ngModel" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required/>
+                <div class="fw-bold input-valid" *ngIf=" cHname.touched && !cHname.valid">
+                  <div class="text-danger" *ngIf="cHname.errors.required">card holder Name is required</div>
+                  <div class="text-danger" *ngIf="cHname.errors.pattern">Invalid Name</div>
+                  <div class="text-danger" *ngIf="cHname.errors.minlength || cHname.errors.maxlength">
+                      Please enter field length in between 3 and 20
+                  </div>
+              </div>
+              <p class="text-danger fw-bold" *ngIf="validity && !cHname.valid"> *required</p>
               </div>
             </div>
       
@@ -95,10 +103,25 @@
               <div class="col-md-6">
                 <div class="row-1">
                   <div class="row row-2">
-                    <span id="card-inner">Card number</span>
+                    <span id="card-inner" for="cNumber">Card number</span>
                   </div>
                   <div class="row row-2">
-                    <input type="text" placeholder="number" name="cNumber" ngModel />
+                    <input type="number" placeholder="number" name="cNumber" id="cNumber" ngModel minlength="16" maxlength="16" #cNumber="ngModel"  pattern="^[0-9]{16}$" required/>
+
+                    <div class="fw-bold input-valid"
+                    *ngIf=" cNumber.touched && !cNumber.valid">
+                    <div class="text-danger" class="text-danger"
+                        *ngIf="cNumber.errors.required">card number is required</div>
+                    <div class="text-danger" class="text-danger"
+                        *ngIf="cNumber.errors.pattern">Invalid card number</div>
+                    <div class="text-danger" class="text-danger"
+                        *ngIf="cNumber.errors.minlength || cNumber.errors.maxlength">
+                        Please enter field length of 16 digits
+                    </div>
+                </div>
+
+                <p class="text-danger fw-bold" *ngIf="validity && !cNumber.valid"> *required
+                </p>
                   </div>
                 </div>
               </div>
@@ -106,9 +129,22 @@
       
               <div class="col-md-3">
                 <div class="row-1">
-                  <div class="row row-2"><span id="card-inner">Exp</span></div>
+                  <div class="row row-2"><span id="card-inner" for="exp">Exp</span></div>
                   <div class="row row-2">
-                    <input type="text" placeholder="Exp date" name="exp" ngModel />
+                    <input type="text" placeholder="Exp date" id="exp" name="exp" ngModel #exp="ngModel" form-control pattern="^((0[1-9])|(1[0-2]))[\/\.\-]*(([0-9][1-9]))$" required/>
+
+
+                    <div class="fw-bold input-valid" *ngIf=" exp.touched && !exp.valid">
+                      <div class="text-danger" class="text-danger"
+                          *ngIf="exp.errors.required">Exp is required</div>
+                      <div class="text-danger" class="text-danger" *ngIf="exp.errors.pattern">Invalid exp Date</div>
+
+
+                  </div>
+
+                  <p class="text-danger fw-bold" *ngIf="validity && !exp.valid"> *required</p>
+
+          
                   </div>
                 </div>
               </div>
@@ -116,9 +152,21 @@
       
               <div class="col-md-3">
                 <div class="row-1">
-                  <div class="row row-2"><span id="card-inner">CVV</span></div>
+                  <div class="row row-2"><span id="card-inner" for="cvv">CVV</span></div>
                   <div class="row row-2">
-                    <input type="text" placeholder="CVV" name="cvv" ngModel />
+                    <input type="number" placeholder="CVV" name="cvv" id="cvv" ngModel  minlength="3" maxlength="3" #cvv="ngModel" pattern="^[0-9]{3}$" required/>
+
+                    <div class="fw-bold input-valid" *ngIf=" cvv.touched && !cvv.valid">
+                      <div class="text-danger" class="text-danger" *ngIf="cvv.errors.required">cvv is required</div>
+                      <div class="text-danger" class="text-danger" *ngIf="cvv.errors.pattern">Invalid cvv</div>
+                      <div class="text-danger" class="text-danger"
+                          *ngIf="cvv.errors.minlength || cvv.errors.maxlength">
+                          Please enter 3 digits
+                      </div>
+                  </div>
+
+                  <p class="text-danger fw-bold" *ngIf="validity && !cvv.valid"> *required</p>
+
                   </div>
                 </div>
               </div>

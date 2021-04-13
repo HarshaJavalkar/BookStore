@@ -276,6 +276,8 @@ else{
   cardSave(ref) {
     let cardObj = ref.value;
 
+
+
     let user = localStorage.getItem('username');
 
     this.cardDetails[0].username = user;
