@@ -13,6 +13,7 @@ export class OrdersComponent implements OnInit {
   productsReceived;
 
   productsList = [];
+  sum: number = 0;
 
   status: string;
 
@@ -34,7 +35,19 @@ export class OrdersComponent implements OnInit {
           for (let j = 0; j < this.myOrders[i].products.length; j++) {
             this.productsList.push(this.myOrders[i].products[j]);
           }
-        }
+       
+       
+       
+       
+       }
+
+
+
+
+       for(let i=0;i<this.productsList.length;i++ ){
+
+        this.sum=Math.round(this.sum+this.productsList[i].prod_price)
+       }
 
         // console.log("god must be krazy",this.productsList)
       },

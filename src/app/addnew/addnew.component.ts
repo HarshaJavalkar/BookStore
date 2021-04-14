@@ -37,7 +37,7 @@ export class AddnewComponent implements OnInit {
       'Fiction',
       'Humour',
       'Politics',
-      'Religion',
+      'Literature',
       'Romance',
       'Science',
     ];

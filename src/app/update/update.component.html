@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let data of dataFromServer; let i = index"
+      *ngFor="let data of dataFromServer.slice().reverse(); let i = index"
       [attr.data-index]="i">
       <td class="name">{{ data.prod_name }}</td>
       <td class="desc">{{ data.prod_desc }}</td>
