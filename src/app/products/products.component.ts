@@ -17,14 +17,14 @@ export class ProductsComponent implements OnInit {
     this.ar.paramMap.subscribe((data) => {
       this.productid = data['params'].id;
 
-      console.log('clicked productid', this.productid);
+      // console.log('clicked productid', this.productid);
     });
     this.prodobj.id = this.productid;
 
     this.ds.getProductwithid(this.prodobj).subscribe(
       (res) => {
         this.product = res['message'];
-        console.log(this.product);
+        // console.log(this.product);
       },
       (err) => {}
     );

@@ -1,77 +1,78 @@
-
-
-
-
 <app-corousel></app-corousel>
-<div class="container  mt-0 mb-5 ">
 
+
+<div class="search" style="position: relative;">
 
 <div class="search-box">
-   <input class="search-txt" type="text" name="" [(ngModel)]="searchText" placeholder="Type to Search">
-<a class="search-btn" href="#">
-<i class="fas fa-search"></i>
-</a>
+  <input
+    class="search-txt"
+    type="text"
+    name=""
+    [(ngModel)]="searchText"
+    placeholder="Type to Search"
+  />
+  <a class="search-btn" href="#">
+    <i class="fas fa-search"></i>
+  </a>
 </div>
 
 </div>
 
-<div class="card border-0 containerCss outer-container" style="margin-top: 150px;">
-  
-   <div class="row">
-    <h6 class="text-secondary" *ngIf="searchText">Search results for: {{searchText}}</h6>
-     <div class="wrap">
-       <div class="colu m-4" *ngFor="let product of booksAvailable | filter:searchText ">
-         <div class="card" >
-           <img
-             class="card-img-top"
-             
-             (click)="clickedProduct(product._id)" 
-
-             src="{{ product.photo }}"
-      
-             style="height: 250px; width: 200px; margin: auto;"
-             alt="Card image cap"
-           />
-
-            
-
-         </div>
-         <div class="text-center p-3">
-
-          <h6>{{product.prod_name}}</h6>
-            
-           </div>
-          
-       </div>
-     </div>
-   </div>
- </div>
+<div class="container mt-0 mb-5"></div>
 
 <div
-  class="card press-release containerCss zoom mt-5 mb-5"
-  data-aos="fade-up"
-  data-aos-once="true">
-  <div class="card-body text-center pt-4 pd-5">
-    <div class="small mb-half pt-4 title-card">
-      <div class="glass">
-        <i class="newspaper"></i>
-        
-        <h4>Get a Premium</h4>
-        <!-- <h5 class="title-card">PRESS RELEASE | 10.28.2020</h5> -->
-        <h4 class="text-bold title-card pt-3">Explore the Book you need</h4>
-        <input type="submit" (click)="navigatePremium()" class="mt-5 mb-3 btn" value="LEARN MORE" />
+  class="card border-0 containerCss outer-container"
+  style="margin-top: 150px"
+>
+  <div class="rows">
+    <h6 class="text-secondary" *ngIf="searchText">
+      Search results for: {{ searchText }}
+    </h6>
+    <div class="wrap">
+      <div
+        class="colu m-4"
+        *ngFor="let product of booksAvailable | filter: searchText"
+      >
+        <div class="card">
+          <img
+            class="card-img-top"
+            (click)="clickedProduct(product._id)"
+            src="{{ product.photo }}"
+           
+            alt="Card image cap"
+          />
+        </div>
+        <div class="text-center p-3">
+          <h6>{{ product.prod_name }}</h6>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<div
+  class="card press-release containerCss zoom mt-5 mb-5"
+  data-aos="fade-up"
+  data-aos-once="true"
+>
+  <div class="card-body text-center pt-4 pd-5">
+    <div class="small mb-half pt-4 title-card">
+      <div class="glass">
+        <i class="newspaper"></i>
 
+        <h4>Get a Premium</h4>
+        <!-- <h5 class="title-card">PRESS RELEASE | 10.28.2020</h5> -->
+        <h4 class="text-bold title-card pt-3">Explore the Book you need</h4>
+        <input
+          type="submit"
+          (click)="navigatePremium()"
+          class="mt-5 mb-3 btn"
+          value="LEARN MORE"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container mt-5"><app-categories></app-categories></div>
 <!-- <router-outlet></router-outlet> -->
-
-
-
-
-
-

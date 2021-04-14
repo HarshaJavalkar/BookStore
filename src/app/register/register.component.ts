@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private us: DataService,
     private router: Router,
-    private toastr:ToastrService,
+    private toastr: ToastrService,
     private formBuilder: FormBuilder
   ) {
     this.myForm = this.formBuilder.group({
@@ -26,56 +26,52 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   status: 'data';
   clickedSubmit(formRef) {
-    if(formRef.status){
-      this.validity=true;
-  
-  
+    if (formRef.status) {
+      this.validity = true;
 
-    let dataFromForm = formRef.value;
+      let dataFromForm = formRef.value;
 
-    if (dataFromForm.radioType == 'userChecked') {
-      this.us.createUser(dataFromForm).subscribe(
-        (res) => {
-          if (res['message'] == 'user created') {
-            alert(`${res['message']} Successfully `);
-            this.router.navigateByUrl('/login');
-          } else {
-            alert('The email or username is already exist ');
+      if (dataFromForm.radioType == 'userChecked') {
+        this.us.createUser(dataFromForm).subscribe(
+          (res) => {
+            if (res['message'] == 'user created') {
+              alert(`${res['message']} Successfully `);
+              this.router.navigateByUrl('/login');
+            } else {
+              alert('The email or username is already exist ');
+            }
+          },
+          (err) => {
+            alert('Something is wrong while creating');
+            console.log(err);
           }
-        },
-        (err) => {
-          alert('Something is wrong while creating');
-          console.log(err);
-        }
-      );
-    }
-    if (dataFromForm.radioType == 'adminChecked') {
-      dataFromForm.products = [];
-      console.log('new admin', dataFromForm);
+        );
+      }
+      if (dataFromForm.radioType == 'adminChecked') {
+        dataFromForm.products = [];
+        console.log('new admin', dataFromForm);
 
-      this.us.createAdmin(dataFromForm).subscribe(
-        (res) => {
-          if (res['message'] == 'Admin created') {
-            alert(`${res['message']} Successfully `);
-            this.router.navigateByUrl('/login');
-          } else {
-            alert('The email or username is already exist ');
+        this.us.createAdmin(dataFromForm).subscribe(
+          (res) => {
+            if (res['message'] == 'Admin created') {
+              alert(`${res['message']} Successfully `);
+              this.router.navigateByUrl('/login');
+            } else {
+              alert('The email or username is already exist ');
+            }
+          },
+          (err) => {
+            alert('Something is wrong while creating Admin');
+            console.log(err);
           }
-        },
-        (err) => {
-          alert('Something is wrong while creating Admin');
-          console.log(err);
-        }
-      );
+        );
+      }
+    } else {
+      this.validity = true;
+      this.toastr.warning('All fields are Mandatory');
     }
-  }
-  else{
-    this.validity=true;
-    this.toastr.warning("All fields are Mandatory")
-  }
   }
   ngOnInit(): void {}
 }

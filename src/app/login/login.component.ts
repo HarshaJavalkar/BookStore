@@ -16,18 +16,19 @@ export class LoginComponent implements OnInit {
   loginCheck: Boolean = false;
   isFormSubmitted = false;
   toastMessage: String = ' ';
-  
 
   subscription: Subscription;
   loginObj;
   loginStatus: boolean = localStorage.getItem('username') ? true : false;
 
-  constructor(private us: DataService, private router: Router,private toastr:ToastrService) {}
+  constructor(
+    private us: DataService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
   form;
   ngOnInit(): void {
- 
     this.form = new FormGroup({
-     
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -46,26 +47,28 @@ export class LoginComponent implements OnInit {
   loginData() {
     this.loginObj = this.form.value;
 
+   if( this.loginObj.User==null) {
+      this.toastr.error('Please select Type of Login');
+    }
+    else{
+
     if (this.loginObj.User == 'User') {
       this.userLogin();
     }
 
     if (this.loginObj.User == 'Admin') {
       this.adminLogin();
-    }
-
-    else{
-     this.toastr.error('Please select Type of Login')
-    }
+    } 
+  }
+    
   }
 
   userLogin() {
     this.subscription = this.us.loginUser(this.loginObj).subscribe(
       (res) => {
-        console.log("ed",res['message']);
+        // console.log('ed', res['message']);
 
         if (res['message'] == 'success') {
-         
           this.toastr.success("Successfull logged In!'");
 
           localStorage.setItem('token', res['token']);
@@ -82,20 +85,18 @@ export class LoginComponent implements OnInit {
         if (res['message'] == 'Invalid username') {
           // alert('Username is not valid Please Register');
 
-          this.toastr.error("Username is not valid Please Register");
+          this.toastr.error('Username is not valid Please Register');
 
           // this.router.navigateByUrl('/register');
         }
 
         if (res['message'] == 'Invalid Password') {
-       
           this.toastr.error('Incorrect  Password');
         }
       },
 
       (err) => {
-
-        this.toastr.error('Maintainance issue')
+        this.toastr.error('Maintainance issue');
       }
     );
   }
@@ -106,7 +107,7 @@ export class LoginComponent implements OnInit {
         // console.log(res['message']);
 
         if (res['message'] == 'success') {
-          this.toastr.success('Login Success')
+          this.toastr.success('Login Success');
 
           this.router.navigateByUrl(`/adminaccount/${this.loginObj.username}`);
 
@@ -119,14 +120,11 @@ export class LoginComponent implements OnInit {
         }
 
         if (res['message'] == 'Invalid username') {
-          this.toastr.error("Username is not valid Please Register");
-          
-
+          this.toastr.error('Username is not valid Please Register');
         }
 
         if (res['message'] == 'Invalid Password') {
-         
-          this.toastr.error('Incorrect  Password')
+          this.toastr.error('Incorrect  Password');
         }
       },
 
