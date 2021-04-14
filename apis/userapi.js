@@ -6,6 +6,7 @@ const errorHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
+const Admin = require("../models/Admin");
 
 const bcryptjs = require("bcryptjs");
 const verifyTokenMethod = require("./middlewares/verifytoken");
@@ -47,11 +48,50 @@ userApiObj.post(
 
     // console.log(req.body)
 
+
+    // get the cart of the user 
     let user = await User.findOne({ username: paymentObj[0].orderBy });
     let finalRequiredData = {
       address: user.orders[0].address,
       products: user.cart,
     };
+
+     
+     let orderReqProducts=user.cart
+
+     
+console.log(orderReqProducts[0].prod_id)
+
+     
+  for(let i=0;i<orderReqProducts.length;i++){
+         
+ 
+
+
+         await Admin.findOneAndUpdate({username:orderReqProducts[i].creator},{$push:
+
+          { sales:{ 
+             address:user.orders[0].address,
+             id:orderReqProducts[i].prod_id,
+             orderPlacedBy:orderReqProducts[i].userAdded, 
+             price:orderReqProducts[i].prod_price ,
+             prodName:orderReqProducts[i].prod_name
+          }
+        }
+
+
+
+         })
+         
+    //  adminListpush({products:orderReqProducts[i].creator, address:user.orders[0].address,_id:orderReqProducts })
+
+
+
+
+
+  }
+
+
 
     await User.findOneAndUpdate(
       { username: paymentObj[0].orderBy },
@@ -62,6 +102,9 @@ userApiObj.post(
       { username: paymentObj[0].orderBy },
       { $set: { cart: [] } }
     );
+
+
+    res.send("Order Placed ")
   })
 );
 
@@ -375,7 +418,7 @@ userApiObj.post(
   verifyTokenMethod,
   errorHandler(async (req, res) => {
     let userAddObj = req.body;
-    console.log(userAddObj);
+    // console.log(userAddObj);
 
     let filter = { username: userAddObj[0].username };
 

@@ -1,1 +1,53 @@
-<p>salesinfo works!</p>
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Product Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Address</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sale of salesCart">
+          <td>{{ sale.prodName }}</td>
+          <td>{{ sale.id }}</td>
+          <td>{{ sale.orderPlacedBy }}</td>
+
+          <td>
+            {{ sale.address.firstname }}, {{ sale.address.city }},
+            {{ sale.address.email }}, {{ sale.address.state }},
+            {{ sale.address.zip }}
+          </td>
+          <td>{{ sale.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-4 mt-5">
+    <div
+      class="vl"
+      style="border-left: 6px solid rgb(0, 204, 255); height: 500px"
+    >
+      <div class="card w-100 bg-primary">
+        <table class="table bg-secondary text-white">
+          <tbody>
+            <tr>
+              <td>Total Sales</td>
+
+              <td>{{ salesCount }}</td>
+            </tr>
+
+            <tr>
+              <td>Earnings</td>
+              <td><i class="fas fa-rupee-sign"></i> {{ sum }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

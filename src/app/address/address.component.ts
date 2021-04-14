@@ -44,6 +44,10 @@ export class AddressComponent implements OnInit {
           this.toastr.warning(' address limit reached max');
         } else {
           this.toastr.success('Address added  ');
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         }
       });
     } else {

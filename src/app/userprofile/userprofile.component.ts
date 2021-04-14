@@ -24,15 +24,10 @@ export class UserprofileComponent implements OnInit {
     this.username = localStorage.getItem('username');
 
     this.userObj.username = localStorage.getItem('username');
-    console.log(this.userObj);
+
     this.subscription = this.ds.getprofile(this.userObj).subscribe(
       (res) => {
         this.userprofile = res['message'];
-        console.log(
-          'profile',
-          this.userprofile.username,
-          this.userprofile.email
-        );
       },
       (err) => {}
     );

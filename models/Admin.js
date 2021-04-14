@@ -5,6 +5,8 @@ const AdminSchema = new mongoose.Schema({
   password: String,
   email: String,
   products: [],
+
+  sales: { type: Array, default: [] },
 });
 
 //Create a model

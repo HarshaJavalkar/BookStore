@@ -1,46 +1,43 @@
-<div class="container"><div class="row">
-  <div class="col-sm-8">
-    <div
-      class="container"
-      *ngFor="let product of productsList.slice().reverse()"
-    >
-      <div class="col mt-5">
-        <div class="card">
-          <div class="card-header">
-            {{ product.prod_name }}
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-2">
-                <img src="{{ product.photo }}" width="100%" alt="" />
-              </div>
-              <div class="col-sm-8">
-                <h4>Product Desc</h4>
-                {{ product.prod_desc }}
-              </div>
-              <div class="col-sm-2">
-                <p>PRICE</p>
-                <p>
-                  <i class="fas fa-rupee-sign"></i> {{ product.prod_price }}
-                </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div
+        class="container"
+        *ngFor="let product of productsList.slice().reverse()"
+      >
+        <div class="col mt-5">
+          <div class="card">
+            <div class="card-header">
+              {{ product.prod_name }}
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="{{ product.photo }}" width="100%" alt="" />
+                </div>
+                <div class="col-sm-8">
+                  <h4>Product Desc</h4>
+                  {{ product.prod_desc }}
+                </div>
+                <div class="col-sm-2">
+                  <p>PRICE</p>
+                  <p>
+                    <i class="fas fa-rupee-sign"></i> {{ product.prod_price }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-   </div>
     <div class="col-sm-4">
       <h5>Total Purchases <i class="fa fa-rupee-sign"></i> {{ sum }}</h5>
     </div>
-  
+  </div>
 </div>
 
-</div>
-
-
-
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-sm-4" *ngIf="!pre" (click)="prev()"> <h6 class="text-secondary">Previous</h6> <i class="far fa-chevron-square-left bg-danger h1   children"> </i></div>
 
@@ -52,6 +49,4 @@
 
 </div>
 
-   
-   
-
+    -->

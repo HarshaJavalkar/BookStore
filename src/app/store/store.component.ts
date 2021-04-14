@@ -66,12 +66,12 @@ export class StoreComponent implements OnInit {
 
       this.ds.moveToWishlistFromStore(book).subscribe(
         (res) => {
-          console.log(res['message']);
+          // console.log(res['message']);
 
           if (res['message'] == 'product added to wishlist') {
-            alert('product added to WishList');
+            this.toastr.success('product added to WishList');
           } else {
-            alert('Product is  already exist in wishlist');
+            this.toastr.error('Product is  already exist in wishlist');
           }
         },
 
@@ -93,7 +93,7 @@ export class StoreComponent implements OnInit {
     this.ds.getAllProductstoUsers().subscribe(
       (res) => {
         this.booksAvailable = res['message'];
-        console.log('checkpoint-1', this.booksAvailable);
+        // console.log('checkpoint-1', this.booksAvailable);
 
         // this.booksUpdatedList.length=this.booksAvailable.length;
 
@@ -102,7 +102,7 @@ export class StoreComponent implements OnInit {
             this.booksUpdatedList.push(this.booksAvailable[i]);
         }
 
-        console.log('checkpoint-2', this.booksUpdatedList);
+        // console.log('checkpoint-2', this.booksUpdatedList);
 
         this.booksUpdatedList = this.booksAvailable.filter(function (el) {
           return el != null;

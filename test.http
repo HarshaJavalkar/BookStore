@@ -1,6 +1,0 @@
-POST http://localhost:2000/product/getproducts
-Content-Type: application/json
-
-{
-  "username":"harsha2851"  
-}

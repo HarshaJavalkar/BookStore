@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { parse } from 'dotenv/types';
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { DataService } from '../data.service';
   styleUrls: ['./payment.component.css'],
 })
 export class PaymentComponent implements OnInit {
-  constructor(private ds: DataService, private router: Router) {}
+  constructor(
+    private ds: DataService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   total;
   str: any;
@@ -70,7 +75,11 @@ export class PaymentComponent implements OnInit {
         if (res['message'] == 'Unauthorized access') {
           alert(res['message']);
         } else {
-          console.log(res['message']);
+          this.toastr.success(res['message']);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         }
       },
       (err) => {}

@@ -44,6 +44,28 @@ adminApiObj.post(
 
 // get admin sales
 
+adminApiObj.post('/getSales',
+
+errorHandler(async(req,res)=>{
+
+adminObj=req.body;
+
+
+
+let admin = await Admin.findOne({username:adminObj.username})
+
+
+res.send({message:admin.sales})
+
+
+})
+
+)
+
+
+
+
+
 adminApiObj.post(
   "/login",
   errorHandler(async (req, res) => {

@@ -100,7 +100,6 @@ export class DataService {
   }
 
   makePaymentFinalStep(user): Observable<any> {
-    console.log(user);
     return this.hc.post('/user/makePaymentNext', user);
   }
 
@@ -154,5 +153,9 @@ export class DataService {
 
   changepassword(userpass): Observable<any> {
     return this.hc.post('/user/changepassword', userpass);
+  }
+
+  getSales(adminObj): Observable<any> {
+    return this.hc.post('/admin/getSales', adminObj);
   }
 }
