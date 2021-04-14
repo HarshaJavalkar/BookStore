@@ -62,7 +62,7 @@
                         <label for="prod_name">Product Name</label>
                     </div>
                     <div class="col-sm-10">
-                        <input autocomplete="on" type="text" id="prod_name" placeholder="Product name" name="prod_name" class="" ngModel minlength="5" maxlength="20" #prod_name="ngModel" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required>
+                        <input autocomplete="on" type="text" id="prod_name" placeholder="Product name" name="prod_name" class="" ngModel minlength="2" maxlength="100" #prod_name="ngModel" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required>
                        
                           <!-- error message for product name -->
                         <div class="fw-bold input-valid" *ngIf=" prod_name.touched && !prod_name.valid"> 
