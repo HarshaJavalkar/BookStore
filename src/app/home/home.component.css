@@ -37,6 +37,11 @@
   margin-right: 30%;
   border-radius: 20px;
 }
+.card{
+
+  background-color:rgb(180, 234, 255); 
+  border: none;
+}
 
 .card:hover {
   cursor: pointer;

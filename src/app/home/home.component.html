@@ -15,27 +15,33 @@
 
 </div>
 
-<div class="card containerCss outer-container" style="margin-top: 150px;">
+<div class="card border-0 containerCss outer-container" style="margin-top: 150px;">
   
    <div class="row">
     <h6 class="text-secondary" *ngIf="searchText">Search results for: {{searchText}}</h6>
      <div class="wrap">
        <div class="colu m-4" *ngFor="let product of booksAvailable | filter:searchText ">
-         <div class="card" style="width: 12rem">
+         <div class="card" >
            <img
-             class="card-img-top  "
+             class="card-img-top"
+             
              (click)="clickedProduct(product._id)" 
 
              src="{{ product.photo }}"
-             width="100%"
-             style="height: 250px"
+      
+             style="height: 250px; width: 200px; margin: auto;"
              alt="Card image cap"
            />
-           <div class="card-body">
-              <p class="text-bold">{{product.prod_name}}</p>
-             <p class="card-text"></p>
-           </div>
+
+            
+
          </div>
+         <div class="text-center p-3">
+
+          <h6>{{product.prod_name}}</h6>
+            
+           </div>
+          
        </div>
      </div>
    </div>

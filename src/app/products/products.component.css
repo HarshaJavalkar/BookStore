@@ -1,14 +1,22 @@
 .press-release {
-    min-height: 400px;
-  
-    height: 60%;
-  
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-  
-    background-size:auto;
-    background-image: url("../../assets/stydyBOOK-removebg-preview.png");
-    color: white;
-  }
-  
+  min-height: 500px;
+
+  height: 100%;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-size: auto;
+  background-image: url("../../assets/stydyBOOK-removebg-preview.png");
+  color: white;
+}
+.text-study {
+  margin-left: 20%;
+}
+
+.img-magic {
+  padding-top: -50px;
+  margin-top: -50px;
+  margin-bottom: -50px;
+}

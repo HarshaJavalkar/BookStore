@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@1&family=Playfair+Display+SC&family=Roboto+Mono:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@1&family=Playfair+Display+SC&family=Roboto+Mono:wght@100&display=swap");
 
-.adventure-h6-caption {
+/* .adventure-h6-caption {
   font-family: "Lemonada", cursive;
-}
+} */
 
-.card-header{
+.card-header {
   background-color: #049ad1;
   color: #fff;
   font-weight: bolder;
 }
 
-.categories-more-right{
+.categories-more-right {
   margin-top: 10px;
-  float: right; cursor:pointer;
-  font-family: 'Josefin Slab', serif;
-font-family: 'Playfair Display SC', serif;
-/* font-family: 'Roboto Mono', monospace; */
+  float: right;
+  cursor: pointer;
+  font-family: "Josefin Slab", serif;
+  font-family: "Playfair Display SC", serif;
+  /* font-family: 'Roboto Mono', monospace; */
 }
 
-h3{
+h3 {
   text-transform: uppercase;
 }
 .btn1 {
@@ -31,124 +32,94 @@ h3{
   background-color: #049ad1;
 }
 
-
 .adventure-div-card:hover {
   box-shadow: 12px 12px 40px 10px rgb(207, 207, 207);
 }
 
-
 .categories-div-card {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
-   width:80%;
+  width: 80%;
 }
 
-.spanWriter{
-  top:10%;
-  color:darkgreen;
-
+.spanWriter {
+  top: 10%;
+  color: darkgreen;
 }
 
-.categories-button-button{
-text-align: center;
+.categories-button-button {
+  text-align: center;
 
-border: none;
+  border: none;
 
-padding:0.5rem;
-margin-top: 10px;
-margin-bottom: 10px;
+  padding: 0.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
-font-weight: bolder;
+  font-weight: bolder;
 
-
-
-color: #fff;
-border-radius: 20px;
-background-color: #049ad1;
-
-
-
-
+  color: #fff;
+  border-radius: 20px;
+  background-color: #049ad1;
 }
 
-.categories-button-button:hover,btn1:hover{
-
+.categories-button-button:hover,
+btn1:hover {
   background-color: #055c7c;
 }
 
-
-
-.cardVertical{
-
+.cardVertical {
   height: 630px;
 }
 
-img{
+img {
   height: 300px;
 }
 
-.horizontal-card{
-
+.horizontal-card {
   width: 65%;
 }
 
+.adventure-h6-caption {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17.5px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 700;
+  line-height: 25px;
+}
 
-@media only screen and (max-width:1000px)
-
-
-{
-
+@media only screen and (max-width: 1000px) {
   .categories-div-card {
-
-  width:80%;
+    width: 80%;
   }
 
-  .horizontal-card{
-
+  .horizontal-card {
     width: 300px;
 
-    
     margin: 0 auto;
     display: block;
   }
 }
 
-
-
-@media only screen and (min-width:767px)
-
-
-{
-
+@media only screen and (min-width: 767px) {
   .categories-div-card {
-
-  width:80%;
+    width: 80%;
   }
 
-  .horizontal-card{
-
+  .horizontal-card {
     width: 200px;
-
   }
 }
 
-
-@media only screen and (max-width:600px)
-
-
-{
-
+@media only screen and (max-width: 600px) {
   .categories-div-card {
-
-  width:100%;
+    width: 100%;
   }
 
-  .horizontal-card{
-
+  .horizontal-card {
     width: 250px;
     margin: 0 auto;
     display: block;
   }
-
 }
