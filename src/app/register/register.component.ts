@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,10 +12,13 @@ import { DataService } from '../data.service';
 export class RegisterComponent implements OnInit {
   public types = ['User', 'Admin'];
   myForm: FormGroup;
+  lists = ['User', 'Admin'];
   products = [''];
+  validity: boolean = false;
   constructor(
     private us: DataService,
     private router: Router,
+    private toastr:ToastrService,
     private formBuilder: FormBuilder
   ) {
     this.myForm = this.formBuilder.group({
@@ -22,8 +26,14 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+
   status: 'data';
   clickedSubmit(formRef) {
+    if(formRef.status){
+      this.validity=true;
+  
+  
+
     let dataFromForm = formRef.value;
 
     if (dataFromForm.radioType == 'userChecked') {
@@ -62,6 +72,10 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
-
+  else{
+    this.validity=true;
+    this.toastr.warning("All fields are Mandatory")
+  }
+  }
   ngOnInit(): void {}
 }

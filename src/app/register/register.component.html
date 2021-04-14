@@ -1,71 +1,68 @@
-<div class="container w-50 mb-4">
-  <div class="card  register-div-card rounded-pill p-5">
-      <div class="card-body">
-          <form  #formRef="ngForm"  (ngSubmit)="clickedSubmit(formRef)"  class="register-form-submit">
-              <div class="form-group">
-                  <div class="row ms-3">
-                      <div class="ms-5">
-                      <div class="form-check form-check-inline form-switch">
-                          <input class="form-check-input" type="radio" name="radioType" id="user" value="userChecked" ngModel #user="ngModel">
-                          <label class="form-check-label" for="exampleRadios1">User</label>
-                      </div>
-                      <div class="form-check form-check-inline form-switch">
-                          <input class="form-check-input" type="radio" name="radioType" id="admin" value="adminChecked" ngModel #admin="ngModel">
-                          <label class="form-check-label" for="exampleRadios2">Admin</label>
-                      </div>
-                      </div>
-                  </div>
-                  <div class="row m-3">
-                      <div class="col-sm-2">
-                          <label for="email">Email</label>
-                      </div>
-                      <div class="col-sm-10">
-                          <input name="email" id="email" placeholder="Email" type="email" class="form-control" ngModel minlength="3" maxlength="35" #email="ngModel" required/>
-                          <!-- (change)="log(email)" -->
-                          <div class="fw-bold input-valid " *ngIf=" email.touched && !email.valid"> 
-                              <div *ngIf="email.errors.required">Email is required</div> 
-                              <div  *ngIf="email.errors.minlength || email.errors.maxlength" >Please enter field length in between 3 and 15</div>
-                              <!-- <div *ngIf="email.errors.pattern"></div> -->
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row m-3">
-                  <div class="col-sm-2">
-                      <label for="username">Username</label>
-                  </div>
-                  <div class="col-sm-10">
-                      <input name="username" id="username" type="text" placeholder="Username" class="form-control register-input-username" minlength="3" maxlength="15" #username="ngModel" required ngModel/>
-                      <!-- (change)="log2(username)" -->
-                      <div class="fw-bold input-valid" *ngIf=" username.touched && !username.valid"> 
-                          <div *ngIf="username.errors.required">Username is required</div> 
-                          <div  *ngIf="username.errors.minlength || username.errors.maxlength" >
-                                  Please enter field length in between 3 and 15
-                          </div>
-                          
-                      </div>
-              
-                  </div>
-              </div>
-              <div class="row m-3">
-                  <div class="col-sm-2">
-                      <label for="password">Password</label>
-                  </div>
-                  <div class="col-sm-10">
-                      <input name="password" id="password" type="password" placeholder="Password" class="form-control" minlength="3" maxlength="15" #password="ngModel" required ngModel />
-                      <!-- (change)="log3(password)" -->
-                      <div class="fw-bold input-valid" *ngIf=" password.touched && !password.valid"> 
-                          <div *ngIf="password.errors.required">Password is required</div> 
-                          <div  *ngIf="password.errors.minlength || password.errors.maxlength" >
-                                  Please enter field length innbetween 3 and 15
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="text-center">
-                  <button type="submit" [disabled]="!formRef.valid" class="register-button-submit">Create Account</button>
-              </div>
-          </form>
-      </div>
-  </div>
+<div class="card mx-auto">
+
+  <h2 class="title"> Sign Up</h2>
+     <p class="subtitle">Already have an account? <a routerLink="/login"> Log in </a></p>
+     <p class="or"><span>or</span></p>
+
+  <form  #formRef="ngForm"  (ngSubmit)="clickedSubmit(formRef)">
+      <div class="form-check">
+          <input class="form-check-input" type="radio" name="radioType" id="user" value="userChecked" ngModel #user="ngModel">
+          <label class="form-check-label" for="user">
+            User
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radioType" id="admin" value="adminChecked" ngModel #admin="ngModel">
+          <label class="form-check-label" for="admin">
+            Admin
+          </label>
+        </div>
+     
+
+     <div class="email-login">
+        <label for="email"> <b>Email</b></label>
+        <input type="text" placeholder="Enter Email" id="email" name="email" ngModel #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <div class="fw-bold input-valid" *ngIf=" email.touched && !email.valid">
+          <div class="text-danger" *ngIf="email.errors.required">Email ID is required</div>
+
+          <div class="text-danger " *ngIf="email.errors.pattern">Invalid Email ID</div>
+          
+          </div>
+          <p class="text-danger fw-bold" *ngIf="validity && !email.valid"> *required</p>
+
+
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="username" name="username" ngModel #username="ngModel" minlength="3" maxlength="20" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" required>
+        <div class="fw-bold input-valid" *ngIf=" username.touched && !username.valid">
+          <div class="text-danger" *ngIf="username.errors.required">Username is required</div>
+
+          <div class="text-danger" *ngIf="username.errors.pattern">Invalid Username</div>
+          <div class="text-danger" *ngIf="username.errors.minlength || username.errors.maxlength">
+            Please enter field length in between 3 and 20
+          </div>
+        </div>
+     
+        <p class="text-danger fw-bold" *ngIf="validity && !username.valid"> *required</p>
+    
+
+
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="password" name="password" ngModel #password="ngModel" pattern="^((?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[$@$!%?&])[A-Za-z\d$@$!%?&].{6,})$" minlength="6" required>
+        <div class="fw-bold input-valid" *ngIf=" password.touched && !password.valid">
+          <div class="text-danger" *ngIf="password.errors.required">password is required</div>
+
+          <div class="text-danger" *ngIf="password.errors.pattern">Invalid password</div>
+          <div class="text-danger" *ngIf="password.errors.minlength ">
+            Please enter min 7 characters
+          </div>
+        </div>
+     
+        <p class="text-danger fw-bold" *ngIf="validity && !password.valid"> *required</p>
+  
+     </div>
+     <button type="submit" class="cta-btn">Sign Up</button>
+  
+  </form>
 </div>

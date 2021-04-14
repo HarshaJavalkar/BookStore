@@ -11,11 +11,63 @@ export class OrdersComponent implements OnInit {
   username = { username: '' };
   myOrders: any;
   productsReceived;
-
+  arr: any
   productsList = [];
   sum: number = 0;
-
+  pre: boolean =false
+  nex: boolean = true 
   status: string;
+
+// start = 0
+// end = 10
+//   next(){
+
+
+//     if(!(this.end>this.productsList.length-1)){
+    
+//     this.start =this.start+10
+//     this.end=this.end+10
+    
+//     this.nex=true
+    
+//     this.arr=this.productsList.slice(this.start,this.end)
+//     console.log(this.arr)
+//   }
+//   else{
+ 
+//     this.nex=true
+
+
+
+//   }
+
+
+
+
+//   }
+
+
+//   prev(){
+ 
+
+
+//     if((this.start<10)){
+//     this.start =this.start-10
+//     this.end=this.end-10
+//     this.pre=true
+//     this.arr=this.productsList.slice(this.start,this.end)
+//     console.log("3",this.arr)
+//     }
+//     else{
+//       this.pre=false
+
+//     }
+
+
+
+
+
+//   }
 
   constructor(private ds: DataService, private router: Router) {}
 
@@ -42,12 +94,11 @@ export class OrdersComponent implements OnInit {
        }
 
 
-
-
        for(let i=0;i<this.productsList.length;i++ ){
 
         this.sum=Math.round(this.sum+this.productsList[i].prod_price)
        }
+
 
         // console.log("god must be krazy",this.productsList)
       },
