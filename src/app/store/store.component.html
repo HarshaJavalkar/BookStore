@@ -1,10 +1,14 @@
+
 <div class="containerCss mb-5">
+
+  <i routerLink="/home" class="fas fa-chevron-circle-left"></i>
+
   <div class="row row-cols-1 row-cols-md-4">
+   
     <div
       class="flip-card mt-5"
       *ngFor="let book of filteredBooks"
-      style="width: 280px; height: 300px"
-    >
+      style="width: 280px; height: 300px">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img

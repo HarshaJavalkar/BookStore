@@ -13,6 +13,18 @@
 
 }
 
+
+.fa-chevron-circle-left{
+  cursor: pointer;
+  font-size: 45px;
+
+}
+.fa-chevron-circle-left:hover{
+  color: #049ad1;
+
+
+
+}
 .flip-card-inner {
   position: relative;
   width: 100%;

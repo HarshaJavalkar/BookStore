@@ -120,22 +120,22 @@ export class StoreComponent implements OnInit {
 
           case 2: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Biography';
-            });
-
-            break;
-          }
-
-          case 3: {
-            this.filteredBooks = this.booksUpdatedList.filter((book) => {
               return book.type == 'Business';
             });
             break;
           }
 
+          case 3: {
+            this.filteredBooks = this.booksUpdatedList.filter((book) => {
+              return book.type == 'Crime';
+            });
+
+            break;
+          }
+
           case 4: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Computing';
+              return book.type == 'Biography';
             });
 
             break;
@@ -143,7 +143,7 @@ export class StoreComponent implements OnInit {
 
           case 5: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Computing';
+              return book.type == 'Humour';
             });
 
             break;
@@ -151,7 +151,7 @@ export class StoreComponent implements OnInit {
 
           case 6: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Fiction';
+              return book.type == 'Literature';
             });
 
             break;
@@ -159,7 +159,7 @@ export class StoreComponent implements OnInit {
 
           case 7: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Humour';
+              return book.type == 'Politics';
             });
 
             break;
@@ -167,7 +167,7 @@ export class StoreComponent implements OnInit {
 
           case 8: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Politics';
+              return book.type == 'Computing';
             });
 
             break;
@@ -175,7 +175,7 @@ export class StoreComponent implements OnInit {
 
           case 9: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Religion';
+              return book.type == 'Romance';
             });
 
             break;
@@ -183,7 +183,7 @@ export class StoreComponent implements OnInit {
 
           case 10: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Romance';
+              return book.type == 'Science';
             });
 
             break;
@@ -191,7 +191,7 @@ export class StoreComponent implements OnInit {
 
           case 11: {
             this.filteredBooks = this.booksUpdatedList.filter((book) => {
-              return book.type == 'Science';
+              return book.type == 'Fiction';
             });
 
             break;
