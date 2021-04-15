@@ -54,7 +54,7 @@ export class DataService {
   // service to get books based on category
 
   getProducts(localUser): Observable<any> {
-    console.log('service', localUser);
+ 
 
     return this.hc.post('/product/getproducts', localUser);
   }

@@ -104,7 +104,7 @@ productApiObj.post(
 
   errorHandler(async (req, res) => {
     let deleteObj = req.body.prodIdDel;
-    // console.log(deleteObj)
+    console.log(req.body)
     let deleteProd = await Product.updateOne(
       {
         prod_id: deleteObj,

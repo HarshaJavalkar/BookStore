@@ -1,4 +1,5 @@
-<table class="table table-bordered">
+<div style="overflow-x:auto;">
+<table class="table table-responsive-sm table-bordered">
   <thead>
     <tr>
       <th>Product Name</th>
@@ -38,7 +39,7 @@
         <br />
 
         <div>
-        <i *ngIf="editIcon toolHover" (click)="deleteProduct(i)" class="fas fa-trash-alt"></i>
+        <i *ngIf="editIcon toolHover" (click)="deleteProduct(data.prod_id)" class="fas fa-trash-alt"></i>
 
         <p class="text-danger tooltip">Delete </p>
 
@@ -47,6 +48,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 <!-- 
 
@@ -115,3 +117,5 @@
     </div>
   </div>
 </div>
+
+

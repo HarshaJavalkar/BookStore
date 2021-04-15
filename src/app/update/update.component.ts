@@ -40,14 +40,14 @@ export class UpdateComponent implements OnInit {
   }
 
   deleteProduct(index) {
-    console.log(this.dataFromServer[index].prod_id);
+    console.log(index);  
 
-    this.delUser.prodIdDel = this.dataFromServer[index].prod_id;
+    this.delUser.prodIdDel = index
     this.ds.deleteAdminProducts(this.delUser).subscribe(
       (res) => {
         console.log(res['message']);
 
-        window.location.reload();
+      
       },
       (err) => {
         console.log('error at delete ', err);

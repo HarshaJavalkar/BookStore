@@ -68,7 +68,7 @@ export class ProductinfoComponent implements OnInit {
 
       this.ds.moveToWishlistFromStore(book).subscribe(
         (res) => {
-          console.log(res['message']);
+          // console.log(res['message']);
 
           if (res['message'] == 'product added to wishlist') {
             this.toastr.success('product added to WishList');

@@ -1,4 +1,7 @@
 <div class="container" style="border: none">
+
+  <i routerLink="/home" class="fas h1 fa-chevron-circle-left" style="cursor: pointer;"></i>
+
   <div class="row">
     <div class="col-sm-3">
       <div class="thumbnail" style="padding: 30px; border: none">
@@ -7,12 +10,12 @@
       </div>
     </div>
 
-    <div class="col-sm-9 desc">
+    <div class="col-sm-9 desc mt-5">
         <h4>
           <b>{{ product?.prod_name }}</b>
         </h4>
-        <p>Author: {{ product?.author}}</p>
-        <p>Category: {{ product?.type }}</p>
+        <h6>Author: {{ product?.author}}</h6>
+        <small>Category: {{ product?.type }}</small>
 
         <div>
           <h3><i class="fa fa-rupee-sign"></i> {{ product?.prod_price }}</h3>
@@ -21,8 +24,8 @@
 
         <div class="row">
           <div class="col-sm">
-            <h4>Description:</h4>
-            {{ product?.prod_desc }}
+            <h4>About Book</h4>
+          <h6>   {{ product?.prod_desc }}</h6>
           </div>
         </div>
     </div>

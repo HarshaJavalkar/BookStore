@@ -18,6 +18,7 @@ export class WishlistComponent implements OnInit {
   wishlist: any;
   wishlistIsEmpty: boolean;
   userObj = { username: '' };
+  indexDeleted
   ngOnInit(): void {
     this.userObj.username = localStorage.getItem('username');
 
@@ -50,6 +51,26 @@ export class WishlistComponent implements OnInit {
   }
 
   deleteFromWishlist(wish) {
+
+
+    console.log(this.wishlist)
+    if(this.wishlist.length==0)
+    this.wishlistIsEmpty=true
+    else
+    this.wishlistIsEmpty=false
+    
+     for(let i=0 ;i<this.wishlist.length;i++){
+       if(wish.prod_id==this.wishlist[i].prod_id){
+
+        this.indexDeleted=i
+        break;
+       }
+
+       
+     }
+
+ this.wishlist.splice(this.indexDeleted,1)
+
     this.ds.deleteProductFromWishlist(wish).subscribe(
       (res) => {
         if (
@@ -70,7 +91,8 @@ export class WishlistComponent implements OnInit {
       (err) => {}
     );
 
-    window.location.reload();
+    
+    // this.wishlist.splice()
   }
 
   moveToCartFromWishlist(book) {

@@ -1,19 +1,14 @@
-section{
-  position:relative;
-  top:4.5em;
-} 
-.container-fluid {
-  margin:1px;
+section {
+  position: relative;
+  top: 4.5em;
 }
- 
+.container-fluid {
+  margin: 1px;
+}
 
-
-
-
-
-.btn1{
+.btn1 {
   margin: 0.75em 0;
-  
+
   border-radius: 100px;
   border: none;
   padding: 0.8em 1.5em 0.8em 2.75em;
@@ -28,9 +23,7 @@ section{
   margin-left: 1em;
 }
 
-.btn1:hover{
-
-color: white;
-background-color: #049ad1;
-
+.btn1:hover {
+  color: white;
+  background-color: #049ad1;
 }

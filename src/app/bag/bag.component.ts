@@ -21,6 +21,7 @@ export class BagComponent implements OnInit {
   totalPrice: number;
   cartIsEmpty: boolean;
   limitofPurhcase: boolean = false;
+  indexRemoved;
 
   deliveryCharge: number = 50;
   constructor(
@@ -48,7 +49,13 @@ export class BagComponent implements OnInit {
         if (res['message'] == 'Unauthorized access') {
           alert(res['message']);
         } else {
-          window.location.reload();
+          for (let i = 0; i < this.activeProducts.length; i++)
+            if (item.prod_id == this.activeProducts[i].prod_id) {
+              this.indexRemoved = i;
+            }
+
+          this.activeProducts.splice(this.indexRemoved, 1);
+          if (this.activeProducts.length == 0) this.cartIsEmpty = false;
         }
       },
       (err) => {}
@@ -71,9 +78,9 @@ export class BagComponent implements OnInit {
           console.log(res['message']);
 
           if (res['message'] == 'product added to wishlist') {
-            alert('product added to WishList');
+            this.toastr.success('product added to WishList');
           } else {
-            alert('Product is  already exist in wishlist');
+            this.toastr.warning('Product is  already exist in wishlist');
           }
         },
 
