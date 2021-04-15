@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 
@@ -15,7 +15,8 @@ export class ProductinfoComponent implements OnInit {
   constructor(
     private ar: ActivatedRoute,
     private ds: DataService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router :Router
   ) {}
 
   ngOnInit(): void {
@@ -54,7 +55,10 @@ export class ProductinfoComponent implements OnInit {
         (err) => {}
       );
     } else {
-      this.toastr.error('Please Register ');
+      this.toastr.error('Please  Login ');
+
+      setTimeout( () => { this.router.navigateByUrl('/login')}, 1000 );
+      
     }
   }
 
@@ -80,7 +84,8 @@ export class ProductinfoComponent implements OnInit {
         (err) => {}
       );
     } else {
-      this.toastr.warning('Please Register ');
+      this.toastr.warning('Please  Login ');
+      this.router.navigateByUrl('/login')
     }
   }
 }

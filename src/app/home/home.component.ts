@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   searchText;
   toast = true;
   username;
+  booksUpdatedList=[]
 
   product: any;
 
@@ -50,7 +51,17 @@ export class HomeComponent implements OnInit {
         }
         if (res['message'] == 'Unauthorized access') {
           alert(res['message']);
-        } else this.booksAvailable = res['message'];
+        }
+         else 
+         
+         this.booksAvailable = res['message'];
+         for (let i = 0; i < this.booksAvailable.length; i++) {
+          if (this.booksAvailable[i].active)
+            this.booksUpdatedList.push(this.booksAvailable[i]);
+        }
+      
+
+         
       },
       (err) => {}
     );
