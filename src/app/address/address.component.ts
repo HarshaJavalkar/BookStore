@@ -39,6 +39,13 @@ export class AddressComponent implements OnInit {
 
       addObj.username = localStorage.getItem('username');
 
+      if (this.addressList.length >= 5) {
+        this.addressLimit = false;
+      } 
+      else {
+        this.addressLimit = true;
+      }
+
       this.ds.addAddress(addObj).subscribe((res) => {
         if (res['message'] == 'Address limit reached Maximum') {
           this.toastr.warning(' address limit reached max');
