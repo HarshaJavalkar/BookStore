@@ -22,50 +22,100 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto me-5">
-      <li class="nav-item" *ngIf="loggedin() && loginType()">
-        <a class="nav-link" routerLink="useraccount/{{ username }}/home">
+      <li
+        class="nav-item"
+        data-bs-toggle="collapse"
+        *ngIf="loggedin() && loginType()"
+      >
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="useraccount/{{ username }}/home"
+        >
           <i class="fa fa-home"></i> Home</a
         >
       </li>
 
-      <li class="nav-item" *ngIf="!loggedin()">
-        <a class="nav-link" routerLink="home">
+      <li class="nav-item" data-bs-toggle="collapse" *ngIf="!loggedin()">
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="home"
+        >
           <i class="fa fa-home"></i> Home</a
         >
       </li>
-      <li class="nav-item active" *ngIf="loginType()">
-        <a class="nav-link" routerLink="userprofile/{{ username }}"
+      <li class="nav-item active" data-bs-toggle="collapse" *ngIf="loginType()">
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="userprofile/{{ username }}"
           ><i class="fa fa-user-alt"></i> Profile <span class="sr-only"></span
         ></a>
       </li>
 
-      <li class="nav-item" *ngIf="loggedin() && loginType()">
-        <a class="nav-link" routerLink="useraccount/{{ username }}/cart">
+      <li
+        class="nav-item"
+        data-bs-toggle="collapse"
+        *ngIf="loggedin() && loginType()"
+      >
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="useraccount/{{ username }}/cart"
+        >
           <i class="fa fa-shopping-cart"></i> Cart</a
         >
       </li>
 
-      <li class="nav-item" *ngIf="loggedin() && loginType()">
-        <a class="nav-link" routerLink="useraccount/{{ username }}/orders">
+      <li
+        class="nav-item"
+        data-bs-toggle="collapse"
+        *ngIf="loggedin() && loginType()"
+      >
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="useraccount/{{ username }}/orders"
+        >
           <i class="fa fa-rv"></i> My Orders</a
         >
       </li>
 
-      <li class="nav-item" *ngIf="loggedin() && loginType()">
-        <a class="nav-link" routerLink="useraccount/{{ username }}/wishlist"
+      <li
+        class="nav-item"
+        data-bs-toggle="collapse"
+        *ngIf="loggedin() && loginType()"
+      >
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="useraccount/{{ username }}/wishlist"
           ><i class="fa fa-heart"></i> Wishlist</a
         >
       </li>
 
-      <li class="nav-item" *ngIf="!loggedin()">
-        <a class="nav-link" routerLink="login"
+      <li class="nav-item" data-bs-toggle="collapse" *ngIf="!loggedin()">
+        <a
+          class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLink="login"
           ><i class="fa fa-sign-in"></i> Login</a
         >
       </li>
 
-      <li class="nav-item" *ngIf="loggedin()">
+      <li class="nav-item" data-bs-toggle="collapse" *ngIf="loggedin()">
         <a
           class="nav-link text-danger"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
           (click)="logOutUser()"
           routerLink="login"
           ><i class="fad fa-sign-out"></i> Logout</a
