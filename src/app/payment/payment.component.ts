@@ -61,6 +61,8 @@ export class PaymentComponent implements OnInit {
 
     this.cardIndex.cardObj = this.savedCards;
 
+    if (this.savedCards.length < 3) this.displayAddCard = true;
+
     this.ds.deleteCard(this.cardIndex).subscribe(
       (res) => {
         if (
@@ -75,17 +77,12 @@ export class PaymentComponent implements OnInit {
         if (res['message'] == 'Unauthorized access') {
           alert(res['message']);
         } else {
-          this.toastr.success(res['message']);
-
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+          if (res['message'] == 'Card deleted')
+            this.toastr.success(res['message']);
         }
       },
       (err) => {}
     );
-
-    window.location.reload();
   }
 
   makePayment() {
@@ -200,6 +197,11 @@ export class PaymentComponent implements OnInit {
         } else {
           if (res['message'] == 'Card Added') {
             this.cardLimitReached = false;
+
+            this.savedCards.push(this.cardDetails[0]);
+            //  console.log( this.savedCards.length)
+
+            if (this.savedCards.length >= 3) this.displayAddCard = false;
           } else {
             this.cardLimitReached = true;
           }
@@ -207,8 +209,6 @@ export class PaymentComponent implements OnInit {
       },
       (err) => {}
     );
-
-    window.location.reload();
   }
 
   ngOnInit(): void {

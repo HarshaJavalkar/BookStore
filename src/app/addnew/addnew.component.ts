@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { boolean } from 'joi';
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 declare var $: any;
 
@@ -18,7 +19,11 @@ export class AddnewComponent implements OnInit {
   typeArray: Array<String>;
   typeLanguage: Array<String>;
 
-  constructor(private ds: DataService, private router: Router) {}
+  constructor(
+    private ds: DataService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   addimage(event) {
     this.file = event.target.files[0];
@@ -66,16 +71,17 @@ export class AddnewComponent implements OnInit {
 
       this.ds.createProduct(this.formData).subscribe(
         (res) => {
-          console.log('response', res['message']);
-          if (res['message'] == 'Product created successfully')
-            this.toastMessage = 'Product created successfully';
-
-          window.location.reload();
-
-          // this.router.navigateByUrl(`/adminaccount/${localData}`)
+          if (res['message'] == 'Product created successfully') {
+            this.toastr.success('New Book added successfully');
+            ref.resetForm();
+          }
+          // this.router.navigateByUrl}(`/adminaccount/${localData}`)
 
           if (res['message'] == 'Product already exist') {
             this.toastMessage = res['message'];
+            this.toastr.warning(res['message']);
+
+            ref.resetForm();
           }
         },
         (err) => {

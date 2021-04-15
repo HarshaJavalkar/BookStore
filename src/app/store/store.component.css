@@ -1,45 +1,38 @@
-
 .flip-card {
   background-color: transparent;
   width: 300px;
   height: 300px;
-  perspective: 1000px;
+  perspective: 500px;
   cursor: pointer;
 
-
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
-
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 40px; /* Added */
 }
 
-
-.fa-chevron-circle-left{
+.fa-chevron-circle-left {
   cursor: pointer;
   font-size: 45px;
-
 }
-.fa-chevron-circle-left:hover{
+.fa-chevron-circle-left:hover {
   color: #049ad1;
-
-
-
 }
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.7s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,62 +41,42 @@
 }
 
 .flip-card-front {
-  background-color:#8edbf7;
+  background-color: #8edbf7;
   color: black;
 }
 
 .flip-card-back {
-
-
   color: white;
   transform: rotateY(180deg);
 }
 
+.containerCss {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
+.button-action {
+  color: white;
+  font-weight: bolder;
+  border: none;
+  box-shadow: 0 0 3px 1px rgb(33, 225, 250);
 
-.containerCss{
+  background-color: darkblue;
+}
 
-  margin-left:5%;
-  margin-right:5%;
-  }
+.fa {
+  color: white;
+  font-weight: bolder;
+}
 
-  .button-action{
+.button-action:hover {
+  background-color: #0aabe6;
+}
 
-    color:white;
-    font-weight: bolder;
-    border:none;
-    box-shadow: 0 0 3px 1px rgb(33, 225, 250);
-
-    background-color: darkblue;
-  }
-
-  .fa{
-    color:white;
-    font-weight: bolder;
-
-
-
-  }
-
-  .button-action:hover{
-
-background-color: #0aabe6;
-
-  }
-
-  .fa:hover{
-    
-    font-size: 25px;
-
-
-  }
-  .navigate-to-Product:hover{
-
-
-    text-decoration:underline ;
-    text-decoration-color:#049ad1;
-
-    
-
-  }
-  
+.fa:hover {
+  font-size: 25px;
+}
+.navigate-to-Product:hover {
+  text-decoration: underline;
+  text-decoration-color: #049ad1;
+}

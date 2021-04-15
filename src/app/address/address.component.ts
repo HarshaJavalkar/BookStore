@@ -45,9 +45,8 @@ export class AddressComponent implements OnInit {
         } else {
           this.toastr.success('Address added  ');
 
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+          this.addressList.push(addObj);
+          ref.resetForm();
         }
       });
     } else {
