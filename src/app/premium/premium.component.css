@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap");
 
 body {
@@ -12,13 +13,14 @@ body {
   box-sizing: border-box;
 }
 :root {
-  --blue: #6d6de6;
-  --text: #0f121f;
+  --blue: #1414a3;
+  --text: #04550f;
 }
 
 .price 
  {
     border: 1px solid black;
+    border-radius: 1.5rem;
 }
 
 .price{
@@ -34,6 +36,8 @@ body {
   .price_header {
     text-align: center;
     margin-bottom: 95px;
+    color: #0a0a5c;
+    
   }
     .price h3 {
       margin-bottom: 10px;
@@ -46,6 +50,8 @@ body {
     }
     .price_content {
     display: flex;
+    box-shadow:rgba(0,0,0,0.3) 0px 0px 8px;
+    
 
     }
     .price + .price_singal_card {
@@ -59,6 +65,7 @@ body {
       padding: 50px;
       border: 1px solid #d8d8e7;
       border-radius: 5px;
+      margin-block: 1.5rem;
 
       }
       a {
@@ -67,7 +74,7 @@ body {
         padding-top: 22px;
         text-align: center;
         padding-bottom: 22px;
-        color: white;
+        color: rgb(216, 24, 24);
         font-weight: bold;
         border-radius: 5px;
         background-color: var(--blue);
@@ -84,12 +91,16 @@ body {
         margin-bottom: 20px;
       }
       p {
-        color: var(--text);
+        color:black;
         max-width: 225px;
         margin-bottom: 38px;
       }
-      span {
+      span, button {
         margin-bottom: 100px;
+        background-color: royalblue;
+        text-align:center;
+
+      
       }
         .price > span {
           font-size: 60px;
@@ -117,4 +128,3 @@ body {
       margin-top: 10px;
     }
   }
-

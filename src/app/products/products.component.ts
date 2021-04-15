@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,7 +11,11 @@ export class ProductsComponent implements OnInit {
   productid;
   prodobj = { id: Number };
   product;
-  constructor(private ar: ActivatedRoute, private ds: DataService) {}
+  constructor(private ar: ActivatedRoute, private ds: DataService,private router:Router) {}
+  
+  clickedExplore(cardClicked) {
+    this.router.navigateByUrl(`/store/${cardClicked}`);
+  }
 
   ngOnInit(): void {
     this.ar.paramMap.subscribe((data) => {
