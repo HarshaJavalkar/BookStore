@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class UpdateComponent implements OnInit {
   localUser = { username: '' };
   delUser = { prodIdDel: '' };
 
-  constructor(private ds: DataService, private router: Router) {
+  constructor(private ds: DataService, private router: Router,private toastr: ToastrService) {
     this.localUser.username = localStorage.getItem('username');
     //  console.log("bloody",this.localUser)
 
@@ -63,9 +64,9 @@ export class UpdateComponent implements OnInit {
     console.log(adminReqData);
     this.ds.updateAdminProducts(adminReqData).subscribe(
       (res) => {
-        console.log(res['message']);
+      this.toastr.success( res['message']);
 
-        window.location.reload();
+            
       },
       (err) => {}
     );

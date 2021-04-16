@@ -76,9 +76,9 @@
     <button
       class="btn btn-warning"
       *ngIf="displayAddCard"
+       type="submit"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
+      data-bs-target="#exampleModal">
       Add Card
     </button>
 
@@ -303,6 +303,7 @@
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            #closebutton
           >
             Close
           </button>
@@ -311,3 +312,6 @@
     </div>
   </div>
 </div>
+
+
+

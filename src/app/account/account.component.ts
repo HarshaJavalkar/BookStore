@@ -31,20 +31,33 @@ export class AccountComponent implements OnInit {
         this.salesCount = this.salesCart.length;
 
         for (let i = 0; i < this.salesCart.length; i++) {
-          this.sum = this.sum + this.salesCart[i].price;
+          this.sum = Math.round(this.sum + this.salesCart[i].price);
         }
 
         if (this.salesCount != 0) {
           this.temp = this.salesCart[0].orderPlacedBy;
           this.countUsers = 1;
         }
-        for (let i = 0; i < this.salesCart.length; i++) {
-          if (this.temp == this.salesCart[i].orderPlacedBy) {
-            this.temp = this.salesCart[i].orderPlacedBy;
-          } else {
-            this.countUsers = this.countUsers + 1;
-          }
+      
+
+     this.countUsers = 1;
+ 
+        // Pick all elements one by one
+        for (let i = 1; i < this.salesCart.length; i++) {
+            let j = 0;
+            for (j = 0; j < i; j++)
+                if ( this.salesCart[i].orderPlacedBy ===  this.salesCart[j].orderPlacedBy)
+                    break;
+     
+            // If not printed earlier, then print it
+            if (i === j)
+                this.countUsers++;
         }
+        
+ 
+ 
+
+
       },
 
       (err) => {}

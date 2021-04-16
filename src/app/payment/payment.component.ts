@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { parse } from 'dotenv/types';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-payment',
@@ -10,6 +11,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./payment.component.css'],
 })
 export class PaymentComponent implements OnInit {
+  @ViewChild('closebutton') closebutton;
   constructor(
     private ds: DataService,
     private router: Router,
@@ -17,6 +19,7 @@ export class PaymentComponent implements OnInit {
   ) {}
 
   total;
+  x;
   str: any;
   deliveryCharge;
   sum;
@@ -171,7 +174,8 @@ export class PaymentComponent implements OnInit {
   }
   cardSave(ref) {
     let cardObj = ref.value;
-
+    // console.log(cardObj)
+    this.closebutton.nativeElement.click();
     let user = localStorage.getItem('username');
 
     this.cardDetails[0].username = user;
@@ -197,7 +201,9 @@ export class PaymentComponent implements OnInit {
         } else {
           if (res['message'] == 'Card Added') {
             this.cardLimitReached = false;
+            this.x = 'modal';
 
+            // this.router.navigateByUrl('/home')
             this.savedCards.push(this.cardDetails[0]);
             //  console.log( this.savedCards.length)
 

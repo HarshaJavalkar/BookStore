@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   res.send({ message: "error occured", reason: err.message });
-  console.log(err);
+
 });
 
 
