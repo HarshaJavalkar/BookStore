@@ -17,6 +17,7 @@ import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { SalesinfoComponent } from './salesinfo/salesinfo.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { StoreComponent } from './store/store.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { UpdateComponent } from './update/update.component';
@@ -30,6 +31,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'productinfo/:id', component: ProductinfoComponent },
   { path: 'premium', component: PremiumComponent },
+  { path: 'spinner', component: SpinnerComponent },
+
   { path: 'home', component: HomeComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'userprofile/:username', component: UserprofileComponent },
