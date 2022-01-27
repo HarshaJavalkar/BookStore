@@ -41,7 +41,7 @@
     "ng2-search-filter": "^0.5.1",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-toastr": "^13.2.1",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.15",
     "path": "^0.12.7",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

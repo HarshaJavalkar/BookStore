@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { SpinnerService } from '../spinner.service';
 
 @Component({
   selector: 'app-products',
@@ -11,7 +12,7 @@ export class ProductsComponent implements OnInit {
   productid;
   prodobj = { id: Number };
   product;
-  constructor(private ar: ActivatedRoute, private ds: DataService,private router:Router) {}
+  constructor(private ar: ActivatedRoute, private ds: DataService,private router:Router, private spinner: SpinnerService) {}
   
   clickedExplore(cardClicked) {
     this.router.navigateByUrl(`/store/${cardClicked}`);
@@ -24,13 +25,14 @@ export class ProductsComponent implements OnInit {
       // console.log('clicked productid', this.productid);
     });
     this.prodobj.id = this.productid;
-
+    this.spinner.displayLoad(true);
     this.ds.getProductwithid(this.prodobj).subscribe(
       (res) => {
         this.product = res['message'];
-        // console.log(this.product);
       },
-      (err) => {}
+      (err) => {
+        this.spinner.displayLoad(true);
+      }
     );
   }
 }

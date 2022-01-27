@@ -43,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { PremiumComponent } from './premium/premium.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { PremiumComponent } from './premium/premium.component';
     ProductinfoComponent,
     UserprofileComponent,
     PremiumComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

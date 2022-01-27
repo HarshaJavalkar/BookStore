@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { DataService } from '../data.service';
+import { SpinnerService } from '../spinner.service';
 declare var $: any;
 
 @Component({
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private us: DataService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: SpinnerService
   ) {}
   form;
   ngOnInit(): void {
@@ -64,19 +66,15 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
+    this.spinner.displayLoad(true);
     this.subscription = this.us.loginUser(this.loginObj).subscribe(
       (res) => {
-        // console.log('ed', res['message']);
-
         if (res['message'] == 'success') {
           this.toastr.success("Successfull logged In!'");
-
           localStorage.setItem('token', res['token']);
-
           this.loginStatus = true;
           localStorage.setItem('username', res['userObj']);
           localStorage.setItem('Usertype', this.loginObj.User);
-
           this.loginCheck = true;
           this.us.sendloginState(this.loginStatus);
           this.router.navigateByUrl(`/useraccount/${this.loginObj.username}`);
@@ -89,13 +87,13 @@ export class LoginComponent implements OnInit {
 
           // this.router.navigateByUrl('/register');
         }
-
         if (res['message'] == 'Invalid Password') {
           this.toastr.error('Incorrect  Password');
         }
       },
 
       (err) => {
+        this.spinner.displayLoad(false);
         this.toastr.error('Maintainance issue');
       }
     );

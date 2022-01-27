@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
+import { SpinnerService } from '../spinner.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  booksAvailable: any;
+  booksAvailable: any=null;
   searchText;
   toast = true;
   username;
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private ds: DataService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: SpinnerService
   ) {}
 
   clickedProduct(id) {
@@ -38,6 +40,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+    this.spinner.displayLoad(true);
     this.ds.getAllProductstoUsers().subscribe(
       (res) => {
         if (
@@ -63,7 +66,9 @@ export class HomeComponent implements OnInit {
 
          
       },
-      (err) => {}
+      (err) => {
+        this.spinner.displayLoad(false);
+      }
     );
   }
 }
