@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
       // console.log('clicked productid', this.productid);
     });
     this.prodobj.id = this.productid;
-    this.spinner.displayLoad(true);
+    // this.spinner.displayLoad(true);
     this.ds.getProductwithid(this.prodobj).subscribe(
       (res) => {
         this.product = res['message'];

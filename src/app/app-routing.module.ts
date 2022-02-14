@@ -11,6 +11,7 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PremiumComponent } from './premium/premium.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
@@ -93,6 +94,7 @@ const routes: Routes = [
     ],
   },
   { path: 'store', component: StoreComponent },
+  { path: 'error', component:PagenotfoundComponent },
   { path: '**', redirectTo: 'pagenotfound' },
 ];
 
