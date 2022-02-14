@@ -101,7 +101,8 @@
         >
       </li>
 
-      <li class="nav-item" data-bs-toggle="collapse" *ngIf="!loggedin()">
+      <li class="nav-item" data-bs-toggle="collapse" *ngIf="!loggedin()"           (click)="login()"
+      >
         <a
           class="nav-link"
           data-bs-toggle="collapse"

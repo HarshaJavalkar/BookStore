@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
-    this.spinner.displayLoad(true);
+    // this.spinner.displayLoad(true);
     this.subscription = this.us.loginUser(this.loginObj).subscribe(
       (res) => {
         if (res['message'] == 'success') {

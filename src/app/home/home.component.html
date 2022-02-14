@@ -78,3 +78,12 @@
   
   <app-categories></app-categories></div>
 <!-- <router-outlet></router-outlet> -->
+
+
+<google-pay-button
+environment="TEST"
+buttonSizeMode="fill"
+[paymentRequest]="paymentRequest"
+(loadpaymentdata)="onLoadPayment($event)"
+
+></google-pay-button>

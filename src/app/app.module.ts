@@ -44,6 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { PremiumComponent } from './premium/premium.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { PersistenceService } from 'angular-persistence';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 @NgModule({
   declarations: [
@@ -97,7 +99,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
       preventDuplicates: true,
       positionClass: 'toast-top-center',
     }),
-
+    GooglePayButtonModule,
     HttpClientModule,
   ],
   providers: [
@@ -106,6 +108,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
       useClass: AuthorizationService,
       multi: true,
     },
+    PersistenceService,
   ],
 
   bootstrap: [AppComponent],

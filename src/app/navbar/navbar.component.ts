@@ -32,6 +32,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
+  login(){
+    window.scrollTo(0,0);
+  }
   loginType() {
     if (localStorage.getItem('Usertype') == 'User') {
       return 1;
