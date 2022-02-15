@@ -3,6 +3,6 @@ a {
     color: white;
 }
 a:hover{
-    font-size: 22pt;
     color: cyan;
+    transition: 1s;
 }

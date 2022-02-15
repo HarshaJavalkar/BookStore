@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 import { required } from 'joi';
+import { SpinnerService } from '../spinner.service';
 
 @Component({
   selector: 'app-store',
@@ -17,7 +18,8 @@ export class StoreComponent implements OnInit {
     private ar: ActivatedRoute,
     private ds: DataService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private spinner: SpinnerService
   ) {}
 
   booksAvailable: Array<any>;
@@ -85,8 +87,10 @@ export class StoreComponent implements OnInit {
   // wishlist end
 
   ngOnInit(): void {
+    this.spinner.displayLoad(true);
     this.ar.paramMap.subscribe((data) => {
       this.clickedCard = data['params'].id;
+    // this.spinner.displayLoad(false);
     });
 
     this.clickedCard = +this.clickedCard;
@@ -197,6 +201,8 @@ export class StoreComponent implements OnInit {
             break;
           }
         }
+            this.spinner.displayLoad(false);
+
       },
 
       (err) => {}
