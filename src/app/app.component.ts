@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { SpinnerService } from './spinner.service';
 
 @Component({
   selector: 'app-root',
