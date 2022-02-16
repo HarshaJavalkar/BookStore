@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
         dataFromForm.products = [];
         console.log('new admin', dataFromForm);
 
+        if(dataFromForm.adminCode == "70137214"){        
         this.us.createAdmin(dataFromForm).subscribe(
           (res) => {
             if (res['message'] == 'Admin created') {
@@ -67,6 +68,10 @@ export class RegisterComponent implements OnInit {
             console.log(err);
           }
         );
+        }
+        else{
+          alert("You dont have admin pass")
+        }
       }
     } else {
       this.validity = true;
