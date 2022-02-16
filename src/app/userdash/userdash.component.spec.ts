@@ -1,4 +1,6 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { UserdashComponent } from './userdash.component';
 
@@ -8,7 +10,8 @@ describe('UserdashComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserdashComponent ]
+      declarations: [ UserdashComponent ],
+      imports:[HttpClientModule, RouterTestingModule]
     })
     .compileComponents();
   });

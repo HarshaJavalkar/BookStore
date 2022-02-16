@@ -14,7 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CorouselComponent } from './corousel/corousel.component';
 import { StoreComponent } from './store/store.component';
 import { PopularComponent } from './popular/popular.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { UserdashComponent } from './userdash/userdash.component';
 import { AccountComponent } from './account/account.component';
 import { AdmindashComponent } from './admindash/admindash.component';

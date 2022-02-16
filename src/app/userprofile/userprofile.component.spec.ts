@@ -1,4 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { DataService } from '../data.service';
+import { SpinnerService } from '../spinner.service';
 
 import { UserprofileComponent } from './userprofile.component';
 
@@ -8,7 +13,9 @@ describe('UserprofileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserprofileComponent ]
+      declarations: [ UserprofileComponent ],
+      providers:[DataService, SpinnerService],
+      imports:[RouterTestingModule, HttpClientModule, ReactiveFormsModule, FormsModule]
     })
     .compileComponents();
   });
