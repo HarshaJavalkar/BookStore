@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ToastrModule } from 'ngx-toastr';
+import { DataService } from '../data.service';
 
 import { WishlistComponent } from './wishlist.component';
 
@@ -8,7 +12,9 @@ describe('WishlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WishlistComponent ]
+      declarations: [ WishlistComponent ],
+      providers:[DataService],
+      imports:[RouterTestingModule, HttpClientModule, ToastrModule.forRoot() ]
     })
     .compileComponents();
   });

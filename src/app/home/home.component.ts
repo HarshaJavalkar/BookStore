@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   toast = true;
   username;
   booksUpdatedList = [];
-  paymentRequest!:google.payments.api.PaymentDataRequest;
+  // paymentRequest!:google.payments.api.PaymentDataRequest;
 
   product: any;
   errors: any;
@@ -36,43 +36,42 @@ export class HomeComponent implements OnInit {
   constructor(
     private ds: DataService,
     private router: Router,
-    private toastr: ToastrService,
     private spinner: SpinnerService,
     private persistenceService: PersistenceService
   ) {
-    this.paymentRequest = {
-      apiVersion:2,
-      apiVersionMinor:0 ,
-      allowedPaymentMethods:[
+    // this.paymentRequest = {
+    //   apiVersion:2,
+    //   apiVersionMinor:0 ,
+    //   allowedPaymentMethods:[
         
-        {
-          type:'CARD',
-          parameters: {
-            allowedAuthMethods:['PAN_ONLY','CRYPTOGRAM_3DS'],
-            allowedCardNetworks:['MASTERCARD','VISA']
-          },
-          tokenizationSpecification:{
-            type:'PAYMENT_GATEWAY',
-            parameters:{
-              gateway:'example',
-              gatewayMerchantId:'exampleGatewayMerchantId',
+    //     {
+    //       type:'CARD',
+    //       parameters: {
+    //         allowedAuthMethods:['PAN_ONLY','CRYPTOGRAM_3DS'],
+    //         allowedCardNetworks:['MASTERCARD','VISA']
+    //       },
+    //       tokenizationSpecification:{
+    //         type:'PAYMENT_GATEWAY',
+    //         parameters:{
+    //           gateway:'example',
+    //           gatewayMerchantId:'exampleGatewayMerchantId',
 
-            },
-          },
-        }
-      ],
-      merchantInfo:{
-        merchantId:'176',
-        merchantName:'Demo only' 
-      },
-      transactionInfo:{
-        totalPriceStatus:'FINAL',
-        totalPriceLabel:'Total',
-        totalPrice: '100',
-        currencyCode:'IND',
-        countryCode:'IND',
-      }
-    }
+    //         },
+    //       },
+    //     }
+    //   ],
+    //   merchantInfo:{
+    //     merchantId:'176',
+    //     merchantName:'Demo only' 
+    //   },
+    //   transactionInfo:{
+    //     totalPriceStatus:'FINAL',
+    //     totalPriceLabel:'Total',
+    //     totalPrice: '100',
+    //     currencyCode:'IND',
+    //     countryCode:'IND',
+    //   }
+    // }
   }
 
   clickedProduct(id) {
