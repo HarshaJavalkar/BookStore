@@ -46,6 +46,7 @@ import { PremiumComponent } from './premium/premium.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { PersistenceService } from 'angular-persistence';
 import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { SellComponent } from './sell/sell.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { GooglePayButtonModule } from '@google-pay/button-angular';
     UserprofileComponent,
     PremiumComponent,
     SpinnerComponent,
+    SellComponent,
   ],
   imports: [
     BrowserModule,

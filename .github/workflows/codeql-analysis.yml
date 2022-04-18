@@ -68,3 +68,6 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+
+- name: Publish Unit Test Results
+  uses: EnricoMi/publish-unit-test-result-action@v1.32
