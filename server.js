@@ -9,9 +9,6 @@ require("dotenv").config();
 // npm install path
 app.use(exp.static(path.join(__dirname, "dist/bookStore")));
 
-
-
-
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.DBURL, {
@@ -42,10 +39,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   res.send({ message: "error occured", reason: err.message });
-
 });
-
-
 
 const port = process.env.PORT || 8080;
 // j0oin syntax ===> join(path of the file , )
