@@ -25,6 +25,7 @@ export class ProductinfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     this.clickedCard = this.persistence.get('CARD_CLICKED',StorageType.SESSION);
     this.spinner.displayLoad(true);
     this.ar.paramMap.subscribe((data) => {
@@ -35,8 +36,12 @@ export class ProductinfoComponent implements OnInit {
       (res) => {
         this.product = res['message'];
         this.spinner.displayLoad(false);
+        this.spinner.displayLoad(false);
       },
-      (err) => {}
+      (err) => {
+        this.spinner.displayLoad(false);
+
+      }
     );
   }
 
@@ -46,7 +51,9 @@ export class ProductinfoComponent implements OnInit {
 
     if (status) {
       book.userAdded = status;
+
       this.ds.addtoCart(book).subscribe(
+        
         (res) => {
           if (res['message'] == 'product added to cart') {
             this.spinner.displayLoad(false);
@@ -59,11 +66,17 @@ export class ProductinfoComponent implements OnInit {
           }
         },
 
-        (err) => {}
+        (err) => {
+          this.spinner.displayLoad(false);
+
+        }
       );
     } else {
       this.toastr.error('Please  Login ');
-      setTimeout( () => { this.router.navigateByUrl('/login')}, 1000 );
+      setTimeout( () => {
+        this.spinner.displayLoad(false);
+
+        this.router.navigateByUrl('/login')}, 1000 );
       
     }
   }

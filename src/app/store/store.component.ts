@@ -89,6 +89,8 @@ export class StoreComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.displayLoad(true);
     this.ar.paramMap.subscribe((data) => {
+      this.spinner.displayLoad(false);
+
       this.clickedCard = data['params'].id;
     // this.spinner.displayLoad(false);
     });

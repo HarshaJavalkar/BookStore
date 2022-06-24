@@ -79,12 +79,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.displayLoad(false);
     this.username = localStorage.getItem('username');
     
     // this.spinner.displayLoad(true);
     this.ds.getAllProductstoUsers().subscribe(
       (res) => {
-        // this.spinner.displayLoad(false);
+        this.spinner.displayLoad(false);
         if (
           res['message'] == 'Session is Expired.. Please relogin to continue'
         ) {
@@ -107,7 +108,7 @@ export class HomeComponent implements OnInit {
       (err) => {
         
         this.persistenceService.set('ERRORS',errorHandler(err));
-        // this.spinner.displayLoad(false);
+        this.spinner.displayLoad(false);
         // this.router.navigateByUrl(`error`);
       }
     );

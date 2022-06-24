@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
         this.product = res['message'];
       },
       (err) => {
-        this.spinner.displayLoad(true);
+        this.spinner.displayLoad(false);
       }
     );
   }
